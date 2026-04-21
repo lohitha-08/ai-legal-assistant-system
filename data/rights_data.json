@@ -1,0 +1,247 @@
+{
+  "arrest rights": {
+    "topic": "Arrest Rights",
+    "intro": "A person has certain legal protections during arrest.",
+    "rights_list": [
+      "You have the right to know why you are being arrested.",
+      "You have the right to remain silent.",
+      "You have the right to contact a lawyer.",
+      "You have the right to inform a family member or friend.",
+      "You should be produced before a magistrate within 24 hours."
+    ],
+    "important_notes": [
+      "Police should not use unnecessary force.",
+      "Women should generally not be arrested at night except under special legal procedure.",
+      "Ask for the identity of the police officer if needed."
+    ],
+    "next_step": "Stay calm, ask the reason for arrest, and contact a lawyer immediately."
+  },
+  "women rights": {
+    "topic": "Women Rights",
+    "intro": "Women are protected under several legal safeguards.",
+    "rights_list": [
+      "You can file complaints against harassment or domestic violence.",
+      "You have the right to police protection in certain cases.",
+      "You can seek legal aid and support services.",
+      "You have the right to dignity and privacy during investigation.",
+      "You can seek protection against workplace harassment."
+    ],
+    "important_notes": [
+      "A woman can request that her statement be recorded by a woman officer in some situations.",
+      "Legal remedies are available for workplace and domestic abuse.",
+      "Identity protection may apply in sensitive cases."
+    ],
+    "next_step": "Approach the nearest police station, women helpline, or legal aid center."
+  },
+  "consumer rights": {
+    "topic": "Consumer Rights",
+    "intro": "Consumers have rights against unfair trade and defective products.",
+    "rights_list": [
+      "You have the right to safety.",
+      "You have the right to be informed.",
+      "You have the right to seek redressal.",
+      "You have the right to complain about defective goods or poor services.",
+      "You have the right to compensation in proper cases."
+    ],
+    "important_notes": [
+      "Keep bills, receipts, and product details safe.",
+      "You can file a complaint before the consumer commission.",
+      "Written proof strengthens your complaint."
+    ],
+    "next_step": "Collect proof like invoice or bill and file a complaint."
+  },
+  "cyber rights": {
+    "topic": "Cyber Rights",
+    "intro": "Victims of online fraud or abuse have legal protections.",
+    "rights_list": [
+      "You can report cyber fraud or harassment.",
+      "You can preserve screenshots and digital evidence.",
+      "You can seek police or cyber crime support.",
+      "You can report fake profiles, hacking, and identity theft.",
+      "You have the right to seek action against online threats and abuse."
+    ],
+    "important_notes": [
+      "Do not delete important messages or screenshots.",
+      "Report fraud quickly to improve chances of action.",
+      "Save transaction details, phone numbers, and email records."
+    ],
+    "next_step": "File a cyber complaint with all available evidence."
+  },
+  "bail rights": {
+    "topic": "Bail Rights",
+    "intro": "Bail allows temporary release from custody depending on the nature of the offense.",
+    "rights_list": [
+      "You can apply for bail through legal procedure.",
+      "You have the right to legal representation.",
+      "In bailable offenses, bail may be available as a matter of right.",
+      "In non-bailable offenses, the court decides based on the facts and law."
+    ],
+    "important_notes": [
+      "The court may impose conditions while granting bail.",
+      "Violation of bail conditions may lead to cancellation.",
+      "Quick legal advice is very important."
+    ],
+    "next_step": "Contact a lawyer immediately and file the correct bail application."
+  },
+  "fir rights": {
+    "topic": "FIR Rights",
+    "intro": "An FIR is an important first step in criminal procedure for cognizable offenses.",
+    "rights_list": [
+      "You have the right to file an FIR.",
+      "Police must register FIR for cognizable offenses.",
+      "You can receive a copy of the FIR free of cost.",
+      "You can approach higher officers if police refuse to register the FIR."
+    ],
+    "important_notes": [
+      "Give clear facts with date, time, and place.",
+      "Attach available proof if possible.",
+      "Keep the FIR copy or complaint acknowledgement safe."
+    ],
+    "next_step": "Visit the police station, explain the facts clearly, and collect a copy of the FIR or complaint."
+  },
+  "domestic violence rights": {
+    "topic": "Domestic Violence Rights",
+    "intro": "Victims of domestic violence are protected against physical, emotional, verbal, and economic abuse.",
+    "rights_list": [
+      "You have the right to protection from abuse.",
+      "You have the right to seek legal help and police support.",
+      "You may seek shelter and protection orders.",
+      "You may seek residence-related protection in appropriate cases."
+    ],
+    "important_notes": [
+      "Keep photos, medical proof, messages, and witness details safe.",
+      "Personal safety is the first priority.",
+      "Protection orders can be requested through legal process."
+    ],
+    "next_step": "Move to a safe place if needed, contact police or helpline, and seek legal protection immediately."
+  },
+  "child rights": {
+    "topic": "Child Rights",
+    "intro": "Children are protected under special laws for education, safety, and welfare.",
+    "rights_list": [
+      "Children have the right to education.",
+      "Children have the right to protection from child labor.",
+      "Children have the right to protection from abuse and exploitation.",
+      "Children have the right to dignity, care, and legal protection."
+    ],
+    "important_notes": [
+      "Child abuse should be reported immediately.",
+      "Schools and guardians have responsibilities for child safety.",
+      "Child welfare authorities can intervene when needed."
+    ],
+    "next_step": "Report the matter to police, child helpline, school authority, or child welfare officials immediately."
+  },
+  "property rights": {
+    "topic": "Property Rights",
+    "intro": "Property owners have legal rights over ownership, possession, and lawful transfer of property.",
+    "rights_list": [
+      "You have the right to lawful ownership.",
+      "You have the right against illegal possession or encroachment.",
+      "You have the right to transfer or inherit property legally.",
+      "You have the right to seek legal remedy in property disputes."
+    ],
+    "important_notes": [
+      "Keep sale deed, patta, tax receipts, and registration records safe.",
+      "Always verify title documents before purchase.",
+      "Property disputes often require proper document proof."
+    ],
+    "next_step": "Collect your ownership records and consult a legal expert for the correct civil remedy."
+  },
+  "employment rights": {
+    "topic": "Employment Rights",
+    "intro": "Employees and workers have rights related to wages, safety, dignity, and fair treatment at work.",
+    "rights_list": [
+      "You have the right to fair wages or salary.",
+      "You have the right to safe working conditions.",
+      "You have the right to protection from workplace harassment.",
+      "You have the right to seek remedy against wrongful treatment."
+    ],
+    "important_notes": [
+      "Keep appointment letters, salary slips, emails, and other work proof safe.",
+      "Some complaints should first be raised internally.",
+      "Labor office or legal forums may help in serious disputes."
+    ],
+    "next_step": "Collect proof of employment and raise the issue before HR, labor authorities, or legal forum."
+  },
+  "senior citizen rights": {
+    "topic": "Senior Citizen Rights",
+    "intro": "Senior citizens are protected by law and may claim support, dignity, and protection from abuse or neglect.",
+    "rights_list": [
+      "Senior citizens have the right to maintenance and support.",
+      "They have the right to dignity and safety.",
+      "They can seek legal protection from neglect or abuse.",
+      "They may approach authorities for relief when needed."
+    ],
+    "important_notes": [
+      "Elder abuse or abandonment should be reported.",
+      "Medical and financial records may support the case.",
+      "Maintenance claims may be filed under relevant law."
+    ],
+    "next_step": "Approach the proper authority, police, or legal aid service for protection and maintenance relief."
+  },
+  "education rights": {
+    "topic": "Education Rights",
+    "intro": "Students and children have rights relating to education, fairness, and equal opportunity.",
+    "rights_list": [
+      "Children have the right to education.",
+      "Students should not face unfair discrimination.",
+      "Students may seek grievance redressal for unfair treatment.",
+      "Educational institutions must follow lawful procedures."
+    ],
+    "important_notes": [
+      "Keep admission records, fee receipts, notices, and communication safely.",
+      "Write complaints clearly and keep copies.",
+      "Approach school, college, board, or education authority when needed."
+    ],
+    "next_step": "Collect records and raise the matter with the institution or the proper education authority."
+  },
+  "tenant rights": {
+    "topic": "Tenant Rights",
+    "intro": "Tenants have legal protections relating to residence, rent, and eviction procedure.",
+    "rights_list": [
+      "You have the right to fair treatment by the landlord.",
+      "You may have protection against unlawful eviction.",
+      "You have the right to basic enjoyment of rented property.",
+      "You can seek legal remedy in rent or tenancy disputes."
+    ],
+    "important_notes": [
+      "Keep rental agreement, rent receipts, and payment proof safe.",
+      "Do not rely only on verbal arrangements.",
+      "Eviction and rent disputes often depend on documents and local law."
+    ],
+    "next_step": "Collect your rent agreement and payment proof and consult a legal expert if the dispute becomes serious."
+  },
+  "medical rights": {
+    "topic": "Medical Rights",
+    "intro": "Patients have rights relating to treatment, dignity, and access to medical information.",
+    "rights_list": [
+      "You have the right to receive basic information about treatment.",
+      "You have the right to dignity and respectful care.",
+      "You may seek records and documents related to treatment.",
+      "You can complain against serious negligence or unfair medical conduct."
+    ],
+    "important_notes": [
+      "Keep prescriptions, reports, bills, and discharge summaries safe.",
+      "Write down dates, doctor names, and hospital details.",
+      "Medical negligence issues often need records and expert review."
+    ],
+    "next_step": "Collect all medical records and approach the hospital authority, grievance body, or legal expert."
+  },
+  "general legal rights": {
+    "topic": "General Legal Rights",
+    "intro": "Every citizen has certain basic legal rights and protections under law.",
+    "rights_list": [
+      "You have the right to equality before law.",
+      "You have the right to legal help.",
+      "You have the right to file a complaint.",
+      "You have the right to fair treatment.",
+      "You have the right to seek remedy before lawful authority."
+    ],
+    "important_notes": [
+      "Keep important records and proof safely.",
+      "Do not hesitate to approach proper authorities.",
+      "Legal advice helps when the issue is serious or urgent."
+    ],
+    "next_step": "Collect your documents and approach the correct authority or legal expert for guidance."
+  }
+}

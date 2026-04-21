@@ -1,0 +1,384 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+body{
+    font-family:'Inter', sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(124,58,237,0.16), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(34,211,238,0.10), transparent 22%),
+        linear-gradient(135deg, #160f1f 0%, #22122d 45%, #120b18 100%);
+    color:#e5e7eb;
+    min-height:100vh;
+}
+
+.fir-page{
+    min-height:100vh;
+    padding:36px 14px 70px;
+}
+
+.fir-container{
+    max-width:950px;
+    margin:auto;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:#D6DEEC;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:20px;
+    transition:0.25s ease;
+}
+
+.back-link:hover{
+    color:#D4AF37;
+    transform:translateX(-2px);
+}
+
+.page-header{
+    margin-bottom:24px;
+}
+
+.page-title{
+    font-size:32px;
+    font-weight:900;
+    color:#ffffff;
+    margin-bottom:6px;
+    letter-spacing:0.3px;
+}
+
+.page-title span{
+    color:#D4AF37;
+}
+
+.page-subtitle{
+    color:#cbd5e1;
+    font-size:14px;
+    line-height:1.8;
+    margin:0;
+    max-width:760px;
+}
+
+.fir-card{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(62,36,80,0.97), rgba(39,20,52,0.99));
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.35);
+}
+
+.fir-card::before{
+    content:"";
+    position:absolute;
+    top:-70px;
+    right:-70px;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(212,175,55,0.14), transparent 65%);
+    pointer-events:none;
+}
+
+.fir-card::after{
+    content:"";
+    position:absolute;
+    bottom:-90px;
+    left:-90px;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(34,211,238,0.10), transparent 65%);
+    pointer-events:none;
+}
+
+.card-head{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.card-title{
+    font-size:24px;
+    font-weight:800;
+    color:#ffffff;
+    margin:0;
+}
+
+.card-title i{
+    color:#4F46E5;
+    margin-right:8px;
+}
+
+.card-note{
+    margin-top:7px;
+    color:#cfd8eb;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.status-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border-radius:999px;
+    padding:10px 16px;
+    background:rgba(79,70,229,0.14);
+    color:#c7d2fe;
+    border:1px solid rgba(99,102,241,0.28);
+    font-size:13px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.form-section{
+    position:relative;
+    z-index:1;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:18px;
+}
+
+.full-width{
+    grid-column:1 / -1;
+}
+
+.form-label{
+    font-weight:700;
+    font-size:13px;
+    color:#D4AF37;
+    margin-bottom:7px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.form-control{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.10);
+    color:#f8fafc;
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:14px;
+    box-shadow:none;
+}
+
+.form-control::placeholder{
+    color:#a78fbf;
+}
+
+.form-control:focus{
+    background:rgba(255,255,255,0.08);
+    border-color:#7C3AED;
+    box-shadow:0 0 0 0.12rem rgba(124,58,237,0.25);
+    color:#ffffff;
+}
+
+textarea.form-control{
+    resize:none;
+}
+
+.generate-wrap{
+    position:relative;
+    z-index:1;
+    margin-top:22px;
+}
+
+.generate-btn{
+    width:100%;
+    background:linear-gradient(135deg, #22d3ee, #06b6d4);
+    color:#05131a;
+    font-weight:800;
+    border:none;
+    padding:13px 18px;
+    border-radius:12px;
+    box-shadow:0 10px 24px rgba(34,211,238,0.25);
+    transition:0.25s ease;
+    font-size:15px;
+}
+
+.generate-btn:hover{
+    background:linear-gradient(135deg, #3be1f7, #0891b2);
+    transform:translateY(-2px);
+    color:#05131a;
+}
+
+.generate-btn i{
+    margin-right:8px;
+}
+
+@media (max-width:768px){
+    .fir-page{
+        padding:26px 12px 50px;
+    }
+
+    .page-title{
+        font-size:26px;
+    }
+
+    .fir-card{
+        padding:20px;
+        border-radius:20px;
+    }
+
+    .card-title{
+        font-size:21px;
+    }
+
+    .status-badge{
+        width:100%;
+        justify-content:center;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full-width{
+        grid-column:auto;
+    }
+}
+</style>
+
+<div class="fir-page">
+    <div class="container fir-container">
+
+        <a href="{{ url_for('police') }}" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Police Module</span>
+        </a>
+
+        <div class="page-header">
+            <h2 class="page-title">FIR <span>Generator</span></h2>
+            <p class="page-subtitle">
+                Enter complaint information clearly to generate a structured FIR draft for police documentation.
+            </p>
+        </div>
+
+        <div class="fir-card">
+            <div class="card-head">
+                <div>
+                    <h3 class="card-title">
+                        <i class="bi bi-file-earmark-text"></i> Generate FIR Draft
+                    </h3>
+                    <div class="card-note">
+                        Fill all available details for a clear and professional FIR draft.
+                    </div>
+                </div>
+
+                <div class="status-badge">
+                    <i class="bi bi-shield-check"></i>
+                    Police Draft Tool
+                </div>
+            </div>
+
+            <form method="POST" class="form-section">
+                <div class="form-grid">
+                    <div>
+                        <label class="form-label">
+                            <i class="bi bi-person"></i> Name
+                        </label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter complainant name" required>
+                    </div>
+
+                    <div>
+                        <label class="form-label">
+                            <i class="bi bi-telephone"></i> Phone
+                        </label>
+                        <input type="text" name="phone" class="form-control" placeholder="Enter phone number">
+                    </div>
+
+                    <div class="full-width">
+                        <label class="form-label">
+                            <i class="bi bi-house-door"></i> Address
+                        </label>
+                        <textarea name="address" class="form-control" rows="3" placeholder="Enter address"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="form-label">
+                            <i class="bi bi-calendar-event"></i> Incident Date
+                        </label>
+                        <input type="date" name="incident_date" class="form-control">
+                    </div>
+
+                    <div>
+                        <label class="form-label">
+                            <i class="bi bi-clock"></i> Incident Time
+                        </label>
+                        <div style="display:flex; gap:10px;">
+                            <input type="time" name="incident_time" class="form-control" style="flex:1;">
+                            <select name="time_format" class="form-control" style="max-width:110px;">
+                                <option value="AM">AM</option>
+                                <option value="PM">PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="full-width">
+                        <label class="form-label">
+                            <i class="bi bi-geo-alt"></i> Location
+                        </label>
+                        <input type="text" name="location" class="form-control" placeholder="Enter incident location">
+                    </div>
+
+                    <div class="full-width">
+                        <label class="form-label">
+                            <i class="bi bi-person-badge"></i> Accused (if known)
+                        </label>
+                        <input type="text" name="accused" class="form-control" placeholder="Enter accused details">
+                    </div>
+
+                    <div class="full-width">
+                        <label class="form-label">
+                            <i class="bi bi-folder2-open"></i> Evidence
+                        </label>
+                        <textarea name="evidence" class="form-control" rows="3" placeholder="Mention available evidence"></textarea>
+                    </div>
+
+                    <div class="full-width">
+                        <label class="form-label">
+                            <i class="bi bi-people"></i> Witness
+                        </label>
+                        <textarea name="witness" class="form-control" rows="3" placeholder="Mention witness details"></textarea>
+                    </div>
+
+                    <div class="full-width">
+                        <label class="form-label">
+                            <i class="bi bi-chat-left-text"></i> Complaint Description
+                        </label>
+                        <textarea name="description" class="form-control" rows="6" placeholder="Describe the incident clearly"></textarea>
+                    </div>
+                </div>
+
+                <div class="generate-wrap">
+                    <button type="submit" class="generate-btn">
+                        <i class="bi bi-stars"></i>
+                        Generate FIR Draf
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

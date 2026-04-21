@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+.complaint-page{
+    min-height:100vh;
+    padding:34px 14px 70px;
+    color:#FFFFFF;
+}
+
+.complaint-container{
+    max-width:860px;
+    margin:auto;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:#D6DEEC;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:18px;
+    transition:0.25s ease;
+}
+
+.back-link:hover{
+    color:#D4AF37;
+    transform:translateX(-2px);
+}
+
+.page-header{
+    margin-bottom:24px;
+}
+
+.page-title{
+    font-weight:800;
+    font-size:30px;
+    color:#FFFFFF;
+    margin-bottom:8px;
+    letter-spacing:0.4px;
+}
+
+.page-title span{
+    color:#D4AF37;
+}
+
+.page-subtitle{
+    font-size:14px;
+    color:#D6DEEC;
+    margin-bottom:0;
+    line-height:1.8;
+    max-width:720px;
+}
+
+.complaint-card{
+    background:linear-gradient(180deg, rgba(62,36,80,0.96), rgba(43,22,55,0.98));
+    border:1px solid #5A3A6B;
+    border-radius:22px;
+    padding:28px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.24);
+    backdrop-filter:blur(8px);
+}
+
+.card-title{
+    font-size:22px;
+    font-weight:800;
+    color:#FFFFFF;
+    margin-bottom:8px;
+}
+
+.card-title i{
+    color:#4F46E5;
+    margin-right:8px;
+}
+
+.card-subtitle{
+    font-size:14px;
+    color:#C6BBD6;
+    margin-bottom:24px;
+    line-height:1.7;
+}
+
+.form-label{
+    font-weight:700;
+    font-size:14px;
+    color:#FFFFFF;
+    margin-bottom:8px;
+}
+
+.form-label i{
+    color:#D4AF37;
+    margin-right:6px;
+}
+
+.form-control,
+.form-select{
+    border-radius:12px;
+    padding:12px 14px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid #6B4A7E;
+    color:#FFFFFF;
+    font-size:14px;
+    box-shadow:none;
+}
+
+.form-control::placeholder{
+    color:#B9AFC8;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#7C3AED;
+    box-shadow:0 0 0 0.14rem rgba(124,58,237,0.18);
+    background:rgba(255,255,255,0.08);
+    color:#FFFFFF;
+}
+
+.form-select{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    background:
+        rgba(255,255,255,0.05)
+        url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5H5z'/></svg>")
+        no-repeat right 14px center;
+    background-size:14px;
+    padding-right:42px;
+}
+
+.form-select option{
+    color:#0F172A;
+    background:#FFFFFF;
+}
+
+textarea.form-control{
+    resize:none;
+}
+
+.submit-wrap{
+    text-align:end;
+    margin-top:6px;
+}
+
+.submit-btn{
+    padding:11px 26px;
+    font-size:15px;
+    font-weight:700;
+    border:none;
+    border-radius:12px;
+    color:#FFFFFF;
+    background:linear-gradient(135deg,#6D28D9,#7C3AED);
+    box-shadow:0 12px 24px rgba(109,40,217,0.24);
+    transition:0.25s ease;
+}
+
+.submit-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 30px rgba(109,40,217,0.32);
+}
+
+.submit-btn i{
+    margin-right:6px;
+}
+
+@media (max-width:768px){
+    .complaint-page{
+        padding:26px 12px 50px;
+    }
+
+    .page-title{
+        font-size:24px;
+    }
+
+    .complaint-card{
+        padding:20px 16px;
+    }
+
+    .card-title{
+        font-size:19px;
+    }
+
+    .submit-wrap{
+        text-align:stretch;
+    }
+
+    .submit-btn{
+        width:100%;
+    }
+}
+</style>
+
+<div class="complaint-page">
+    <div class="container complaint-container">
+
+        <a href="{{ url_for('police') }}" class="back-link">
+            <span>←</span> <span>Back to Police Module</span>
+        </a>
+
+        <div class="page-header">
+            <h2 class="page-title">Complaint <span>Entry</span></h2>
+            <p class="page-subtitle">
+                Record the complainant details and incident information to officially register a police complaint.
+            </p>
+        </div>
+
+        <div class="complaint-card">
+            <h3 class="card-title">
+                <i class="bi bi-file-earmark-text"></i> Register Complaint
+            </h3>
+
+            <p class="card-subtitle">
+                Provide the details of the incident clearly for proper complaint registration and further investigation.
+            </p>
+
+            <form method="POST">
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-person"></i> Full Name of Complainant
+                        </label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter complainant name" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-telephone"></i> Contact Number
+                        </label>
+                        <input type="text" name="phone" class="form-control" placeholder="Enter phone number">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <i class="bi bi-geo-alt"></i> Residential Address
+                    </label>
+                    <textarea name="address" class="form-control" rows="3" placeholder="Enter full address"></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-calendar-event"></i> Date of Incident
+                        </label>
+                        <input type="date" name="date" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-pin-map"></i> Incident Location
+                        </label>
+                        <input type="text" name="location" class="form-control" placeholder="Enter location of incident">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <i class="bi bi-exclamation-triangle"></i> Type of Offence
+                    </label>
+                    <select name="offence" class="form-select">
+                        <option value="">Select offence type</option>
+                        <option>Theft</option>
+                        <option>Cheating / Fraud</option>
+                        <option>Physical Assault</option>
+                        <option>Murder</option>
+                        <option>Cyber Crime</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <i class="bi bi-chat-left-text"></i> Detailed Complaint Description
+                    </label>
+                    <textarea name="description" class="form-control" rows="5" placeholder="Describe what happened in detail"></textarea>
+                </div>
+
+                <div class="submit-wrap">
+                    <button type="submit" class="submit-btn">
+                        <i class="bi bi-send"></i> Submit Complaint
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

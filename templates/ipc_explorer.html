@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+.page{
+    max-width:800px;
+    margin:auto;
+    padding:40px 15px;
+}
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+textarea{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+button{
+    margin-top:10px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:8px 20px;
+    border-radius:8px;
+}
+</style>
+
+<div class="page">
+
+    <a href="/public">← Back</a>
+
+    <div class="card">
+        <h4>📜 Law & Punishment</h4>
+
+        <form method="POST">
+            <textarea name="problem" rows="3" placeholder="Example: My phone was stolen"></textarea>
+            <button>Check Law</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

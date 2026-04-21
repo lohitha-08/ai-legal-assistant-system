@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+.notes-page{
+    max-width:1000px;
+    margin:0 auto;
+    padding:28px 14px 60px;
+    color:#FFFFFF;
+}
+
+.back-link{
+    text-decoration:none;
+    color:#D6DEEC;
+    font-size:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:18px;
+    font-weight:600;
+    transition:0.25s ease;
+}
+
+.back-link:hover{
+    color:#D4AF37;
+    transform:translateX(-2px);
+}
+
+.page-title{
+    font-size:28px;
+    font-weight:800;
+    color:#FFFFFF;
+    margin-bottom:22px;
+    letter-spacing:0.3px;
+}
+
+.page-title span{
+    color:#D4AF37;
+}
+
+.note-card{
+    background:linear-gradient(180deg, rgba(62,36,80,0.96), rgba(43,22,55,0.98));
+    border:1px solid #5A3A6B;
+    border-radius:20px;
+    padding:24px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.24);
+    backdrop-filter:blur(8px);
+}
+
+.form-title{
+    font-weight:800;
+    color:#FFFFFF;
+    margin-bottom:18px;
+    font-size:19px;
+}
+
+.form-title i{
+    color:#4F46E5;
+    margin-right:6px;
+}
+
+.form-label{
+    font-size:14px;
+    font-weight:700;
+    color:#F8FAFC;
+    margin-bottom:8px;
+}
+
+.form-control{
+    border-radius:12px;
+    border:1px solid #6B4A7E;
+    padding:11px 13px;
+    background:rgba(255,255,255,0.05);
+    color:#FFFFFF;
+    box-shadow:none;
+}
+
+.form-control::placeholder{
+    color:#B9AFC8;
+}
+
+.form-control:focus{
+    border-color:#7C3AED;
+    box-shadow:0 0 0 0.15rem rgba(124,58,237,0.18);
+    background:rgba(255,255,255,0.08);
+    color:#FFFFFF;
+}
+
+textarea.form-control{
+    resize:none;
+}
+
+.add-btn{
+    background:linear-gradient(135deg,#6D28D9,#7C3AED);
+    border:none;
+    border-radius:12px;
+    padding:11px;
+    font-weight:700;
+    color:white;
+    box-shadow:0 10px 22px rgba(109,40,217,0.24);
+    transition:0.25s ease;
+}
+
+.add-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 28px rgba(124,58,237,0.30);
+}
+
+.notes-list-card{
+    background:linear-gradient(180deg, rgba(62,36,80,0.96), rgba(43,22,55,0.98));
+    border:1px solid #5A3A6B;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.20);
+    margin-bottom:14px;
+}
+
+.note-title{
+    font-weight:800;
+    color:#FFFFFF;
+    font-size:17px;
+}
+
+.note-date{
+    font-size:12px;
+    color:#C6BBD6;
+    margin-top:4px;
+}
+
+.note-text{
+    font-size:14px;
+    color:#E5E7EB;
+    margin-top:10px;
+    line-height:1.8;
+    white-space:pre-wrap;
+}
+
+.icon-btn{
+    text-decoration:none;
+    font-size:18px;
+    margin-left:10px;
+    transition:0.2s ease;
+}
+
+.icon-download{
+    color:#60A5FA;
+}
+
+.icon-delete{
+    color:#F87171;
+}
+
+.icon-btn:hover{
+    opacity:0.85;
+    transform:translateY(-1px);
+}
+
+.no-notes{
+    background:linear-gradient(180deg, rgba(62,36,80,0.96), rgba(43,22,55,0.98));
+    border:1px solid #5A3A6B;
+    border-radius:18px;
+    color:#D6DEEC;
+    font-size:14px;
+    text-align:center;
+    padding:34px 20px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.20);
+}
+
+.no-notes i{
+    font-size:26px;
+    color:#D4AF37;
+    margin-bottom:8px;
+    display:inline-block;
+}
+
+@media (max-width:768px){
+    .notes-page{
+        padding:24px 12px 50px;
+    }
+
+    .page-title{
+        font-size:24px;
+    }
+
+    .note-card,
+    .notes-list-card{
+        padding:16px;
+    }
+
+    .note-title{
+        font-size:16px;
+    }
+}
+</style>
+
+<div class="notes-page">
+
+    <a href="{{ url_for('police') }}" class="back-link">
+        <i class="bi bi-arrow-left"></i> Back to Police Module
+    </a>
+
+    <h2 class="page-title">
+        Investigation <span>Notes</span>
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-5">
+            <div class="note-card">
+
+                <h5 class="form-title">
+                    <i class="bi bi-plus-circle"></i> Add Investigation Note
+                </h5>
+
+                <form method="POST">
+                    <label class="form-label">Note Title</label>
+                    <input type="text" name="title" class="form-control mb-3" placeholder="Enter note title" required>
+
+                    <label class="form-label">Investigation Details</label>
+                    <textarea name="details" class="form-control mb-3" rows="5" placeholder="Write investigation details..." required></textarea>
+
+                    <button class="add-btn w-100" type="submit">
+                        <i class="bi bi-save"></i> Save Note
+                    </button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="col-md-7">
+
+            {% if notes %}
+                {% for note in notes %}
+                <div class="notes-list-card">
+
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="note-title">{{ note.title }}</div>
+                            <div class="note-date">
+                                <i class="bi bi-calendar-event"></i> {{ note.date }}
+                            </div>
+                        </div>
+
+                        <div>
+                            <a href="/delete_note/{{ loop.index0 }}" class="icon-btn icon-delete" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="note-text">
+                        {{ note.details }}
+                    </div>
+
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-notes">
+                    <i class="bi bi-journal-text"></i><br>
+                    No investigation notes added yet.
+                </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,374 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+.evidence-page{
+    max-width:900px;
+    margin:0 auto;
+    padding:28px 14px 60px;
+}
+
+.back-link{
+    text-decoration:none;
+    color:#d6deec;
+    font-size:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:18px;
+    font-weight:600;
+    transition:0.2s ease;
+}
+
+.back-link:hover{
+    color:#58c4ff;
+    transform:translateX(-2px);
+}
+
+.page-title{
+    font-size:27px;
+    font-weight:800;
+    color:#ffffff;
+    margin-bottom:6px;
+}
+
+.page-title span{
+    color:#58c4ff;
+}
+
+.page-subtitle{
+    color:#cbd5e1;
+    font-size:14px;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+.evidence-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.16);
+}
+
+.section-title{
+    font-weight:800;
+    color:#ffffff;
+    margin-bottom:14px;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.info-box{
+    background:rgba(88,196,255,0.07);
+    border:1px solid rgba(88,196,255,0.16);
+    border-left:4px solid #58c4ff;
+    border-radius:10px;
+    padding:12px 14px;
+    font-size:13px;
+    color:#dbeafe;
+    margin-bottom:18px;
+    line-height:1.6;
+}
+
+.sub-section{
+    margin-top:20px;
+    margin-bottom:10px;
+    font-size:13px;
+    font-weight:700;
+    color:#93c5fd;
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+}
+
+.evidence-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:12px;
+}
+
+.form-check{
+    margin:0;
+    padding:0;
+}
+
+.form-check label{
+    width:100%;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:12px;
+    padding:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    transition:0.2s ease;
+}
+
+.form-check label:hover{
+    border-color:rgba(88,196,255,0.30);
+    background:rgba(255,255,255,0.05);
+}
+
+.form-check-input{
+    width:17px;
+    height:17px;
+    margin:0;
+    cursor:pointer;
+    accent-color:#58c4ff;
+    flex-shrink:0;
+}
+
+.form-check-label{
+    font-size:14px;
+    font-weight:600;
+    color:#e2e8f0;
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    width:100%;
+}
+
+.form-check-label i{
+    color:#58c4ff;
+    font-size:15px;
+}
+
+.notes-box{
+    margin-top:18px;
+}
+
+.notes-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#e2e8f0;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.notes-box textarea{
+    width:100%;
+    min-height:90px;
+    border:none;
+    outline:none;
+    resize:vertical;
+    border-radius:12px;
+    padding:12px 14px;
+    background:rgba(255,255,255,0.03);
+    color:#ffffff;
+    border:1px solid rgba(255,255,255,0.08);
+    font-size:14px;
+    line-height:1.6;
+}
+
+.notes-box textarea::placeholder{
+    color:#94a3b8;
+}
+
+.check-btn{
+    margin-top:20px;
+    background:#58c4ff;
+    border:none;
+    border-radius:12px;
+    padding:13px;
+    font-weight:700;
+    color:#0f172a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    width:100%;
+    transition:0.2s ease;
+}
+
+.check-btn:hover{
+    opacity:0.95;
+    transform:translateY(-1px);
+}
+
+@media(max-width:768px){
+    .evidence-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+
+<div class="evidence-page">
+
+    <a href="/police" class="back-link">
+        <i class="bi bi-arrow-left"></i> Back to Police Module
+    </a>
+
+    <h2 class="page-title">
+        Evidence <span>Checklist</span>
+    </h2>
+
+    <div class="page-subtitle">
+        Select the collected evidence to evaluate case strength.
+    </div>
+
+    <div class="evidence-card">
+
+        <div class="section-title">
+            <i class="bi bi-shield-check"></i> Select Available Evidence
+        </div>
+
+        <div class="info-box">
+            Choose all available case evidence. Strong supporting evidence improves investigation reliability.
+        </div>
+
+        <form method="POST">
+
+            <div class="sub-section">Primary Evidence</div>
+            <div class="evidence-grid">
+
+                <div class="form-check">
+                    <label for="witness">
+                        <input class="form-check-input" type="checkbox" name="witness" id="witness">
+                        <span class="form-check-label"><i class="bi bi-person-lines-fill"></i> Witness Statement</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="victim_statement">
+                        <input class="form-check-input" type="checkbox" name="victim_statement" id="victim_statement">
+                        <span class="form-check-label"><i class="bi bi-person-badge"></i> Victim Statement</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="video">
+                        <input class="form-check-input" type="checkbox" name="video" id="video">
+                        <span class="form-check-label"><i class="bi bi-camera-video"></i> Video Evidence</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="photo">
+                        <input class="form-check-input" type="checkbox" name="photo" id="photo">
+                        <span class="form-check-label"><i class="bi bi-image"></i> Photo Evidence</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="document">
+                        <input class="form-check-input" type="checkbox" name="document" id="document">
+                        <span class="form-check-label"><i class="bi bi-file-earmark-text"></i> Document Evidence</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="audio">
+                        <input class="form-check-input" type="checkbox" name="audio" id="audio">
+                        <span class="form-check-label"><i class="bi bi-mic"></i> Audio Recording</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="sub-section">Technical / Forensic Evidence</div>
+            <div class="evidence-grid">
+
+                <div class="form-check">
+                    <label for="cctv">
+                        <input class="form-check-input" type="checkbox" name="cctv" id="cctv">
+                        <span class="form-check-label"><i class="bi bi-camera"></i> CCTV Footage</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="mobile_data">
+                        <input class="form-check-input" type="checkbox" name="mobile_data" id="mobile_data">
+                        <span class="form-check-label"><i class="bi bi-phone"></i> Mobile Call / Chat Records</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="forensic">
+                        <input class="form-check-input" type="checkbox" name="forensic" id="forensic">
+                        <span class="form-check-label"><i class="bi bi-search"></i> Forensic Report</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="fingerprint">
+                        <input class="form-check-input" type="checkbox" name="fingerprint" id="fingerprint">
+                        <span class="form-check-label"><i class="bi bi-fingerprint"></i> Fingerprint Evidence</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="medical">
+                        <input class="form-check-input" type="checkbox" name="medical" id="medical">
+                        <span class="form-check-label"><i class="bi bi-heart-pulse"></i> Medical Report</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="weapon">
+                        <input class="form-check-input" type="checkbox" name="weapon" id="weapon">
+                        <span class="form-check-label"><i class="bi bi-exclamation-octagon"></i> Weapon / Material Object</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="sub-section">Supporting Evidence</div>
+            <div class="evidence-grid">
+
+                <div class="form-check">
+                    <label for="location">
+                        <input class="form-check-input" type="checkbox" name="location" id="location">
+                        <span class="form-check-label"><i class="bi bi-geo-alt"></i> Location Proof</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="confession">
+                        <input class="form-check-input" type="checkbox" name="confession" id="confession">
+                        <span class="form-check-label"><i class="bi bi-journal-text"></i> Confession Statement</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="digital">
+                        <input class="form-check-input" type="checkbox" name="digital" id="digital">
+                        <span class="form-check-label"><i class="bi bi-laptop"></i> Digital Evidence</span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="seizure">
+                        <input class="form-check-input" type="checkbox" name="seizure" id="seizure">
+                        <span class="form-check-label"><i class="bi bi-archive"></i> Seizure Record</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="notes-box">
+                <label class="notes-label" for="notes">
+                    <i class="bi bi-pencil-square"></i> Additional Notes
+                </label>
+                <textarea name="notes" id="notes" placeholder="Extra remarks or supporting details..."></textarea>
+            </div>
+
+            <button class="check-btn" type="submit">
+                <i class="bi bi-bar-chart-line-fill"></i>
+                Check Evidence Strength
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

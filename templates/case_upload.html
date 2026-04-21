@@ -1,0 +1,478 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+
+.case-page{
+    padding:30px 14px 60px;
+    max-width:980px;
+    margin:0 auto;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:#D1C7E0;
+    font-size:14px;
+    font-weight:500;
+    margin-bottom:18px;
+    transition:0.2s ease;
+}
+
+.back-link:hover{
+    color:#D4AF37;
+}
+
+.page-title{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:18px;
+    color:#FFFFFF;
+}
+
+.page-title .upload{
+    color:#D4AF37;
+}
+
+.page-title .entry{
+    color:#A78BFA;
+}
+
+/* SWITCH BAR */
+
+.switch-bar{
+    background:rgba(255,255,255,0.05);
+    border:1px solid #5A3A6B;
+    border-radius:14px;
+    padding:5px;
+    display:flex;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.switch-btn{
+    flex:1;
+    border:none;
+    border-radius:10px;
+    height:44px;
+    background:transparent;
+    color:#D1C7E0;
+    font-size:14px;
+    font-weight:600;
+    transition:0.25s ease;
+}
+
+.switch-btn.active{
+    background:linear-gradient(135deg, #6D28D9, #7C3AED);
+    color:#FFFFFF;
+    box-shadow:0 8px 18px rgba(109,40,217,0.22);
+}
+
+.switch-btn i{
+    margin-right:8px;
+}
+
+/* CARD */
+
+.content-card{
+    background:linear-gradient(180deg, rgba(62,36,80,0.96), rgba(43,22,55,0.98));
+    border-radius:20px;
+    padding:22px;
+    border:1px solid #5A3A6B;
+    box-shadow:0 12px 28px rgba(0,0,0,0.28);
+}
+
+.card-title{
+    font-size:22px;
+    font-weight:700;
+    color:#FFFFFF;
+    margin-bottom:18px;
+}
+
+.hidden-section{
+    display:none;
+}
+
+/* UPLOAD BOX */
+
+.upload-box{
+    border:1.5px dashed #6B4C7D;
+    border-radius:16px;
+    min-height:210px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    text-align:center;
+    background:rgba(255,255,255,0.03);
+}
+
+.upload-icon{
+    font-size:52px;
+    color:#D4AF37;
+    margin-bottom:12px;
+}
+
+.upload-text{
+    color:#C6BBD6;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.custom-file{
+    display:inline-block;
+    padding:10px 16px;
+    background:#2A1433;
+    border:1px solid #5A3A6B;
+    border-radius:10px;
+    color:#FFFFFF;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.2s ease;
+}
+
+.custom-file:hover{
+    background:#3A1D48;
+    border-color:#7C3AED;
+}
+
+.custom-file input{
+    display:none;
+}
+
+.selected-file{
+    margin-top:12px;
+    color:#B8AFC6;
+    font-size:13px;
+}
+
+/* FORM */
+
+.form-label{
+    color:#E5E4E2;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.form-control{
+    border-radius:12px;
+    border:1px solid #5A3A6B;
+    background:#2A1433;
+    padding:11px 14px;
+    color:#FFFFFF;
+}
+
+.form-control::placeholder{
+    color:#9F8FB5;
+}
+
+.form-control:focus{
+    border-color:#7C3AED;
+    box-shadow:0 0 0 0.15rem rgba(124,58,237,0.18);
+    background:#2A1433;
+    color:#FFFFFF;
+}
+
+textarea.form-control{
+    min-height:140px;
+    resize:vertical;
+}
+
+/* MANUAL ENTRY SPECIAL UI */
+
+.manual-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.manual-head-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(167,139,250,0.12);
+    border:1px solid #5A3A6B;
+    color:#A78BFA;
+    font-size:22px;
+}
+
+.manual-head-text h3{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+    color:#FFFFFF;
+}
+
+.manual-head-text p{
+    margin:4px 0 0;
+    color:#B8AFC6;
+    font-size:14px;
+}
+
+.manual-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.form-group-full{
+    grid-column:1 / -1;
+}
+
+.input-hint{
+    margin-top:6px;
+    font-size:12px;
+    color:#9F8FB5;
+}
+
+/* BUTTON */
+
+.btn-analyze{
+    margin-top:18px;
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:12px;
+    font-weight:700;
+    color:#FFFFFF;
+    background:linear-gradient(135deg,#6D28D9,#7C3AED);
+    transition:0.25s ease;
+    box-shadow:0 12px 24px rgba(109,40,217,0.24);
+}
+
+.btn-analyze:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 30px rgba(124,58,237,0.30);
+}
+
+/* ALERT */
+
+.flash-wrap{
+    margin-bottom:14px;
+}
+
+.alert{
+    border-radius:12px;
+    font-size:14px;
+    margin-bottom:0;
+}
+
+.alert-success{
+    background:rgba(34,197,94,0.18);
+    color:#BBF7D0;
+    border:1px solid rgba(34,197,94,0.35);
+}
+
+.alert-danger{
+    background:rgba(239,68,68,0.14);
+    color:#FECACA;
+    border:1px solid rgba(239,68,68,0.35);
+}
+
+@media (max-width: 768px){
+    .manual-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group-full{
+        grid-column:auto;
+    }
+}
+
+@media (max-width: 576px){
+    .page-title{
+        font-size:20px;
+    }
+
+    .content-card{
+        padding:18px;
+    }
+
+    .switch-btn{
+        font-size:13px;
+    }
+
+    .manual-head{
+        align-items:flex-start;
+    }
+}
+
+</style>
+
+
+<div class="case-page">
+
+    <a href="{{ url_for('lawyer') }}" class="back-link">
+        <i class="bi bi-arrow-left"></i> Back to Lawyer Module
+    </a>
+
+    <h2 class="page-title">
+        Case <span class="upload">Upload</span> / <span class="entry">Entry</span>
+    </h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-wrap">
+                {% for category, message in messages %}
+                    {% if category == 'case_success' %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% elif category == 'case_error' %}
+                        <div class="alert alert-danger">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="switch-bar">
+        <button type="button" class="switch-btn active" id="uploadTabBtn" onclick="showSection('upload')">
+            <i class="bi bi-upload"></i> Upload PDF
+        </button>
+
+        <button type="button" class="switch-btn" id="manualTabBtn" onclick="showSection('manual')">
+            <i class="bi bi-file-earmark-text"></i> Manual Entry
+        </button>
+    </div>
+
+    <div class="content-card">
+
+        <!-- FILE UPLOAD -->
+        <div id="uploadSection">
+
+            <h3 class="card-title">Upload Case File</h3>
+
+            <form method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="entry_mode" value="upload">
+
+                <div class="upload-box">
+                    <div>
+                        <div class="upload-icon">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                        </div>
+
+                        <div class="upload-text">
+                            Upload your PDF or DOCX file for AI legal analysis
+                        </div>
+
+                        <label class="custom-file">
+                            Choose File
+                            <input type="file" name="file" id="caseFile" accept=".pdf,.docx" onchange="updateFileName(this)">
+                        </label>
+
+                        <div class="selected-file" id="selectedFileName">
+                            No file chosen
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-analyze">
+                    Analyze Case
+                </button>
+            </form>
+
+        </div>
+
+        <!-- MANUAL ENTRY -->
+        <div id="manualSection" class="hidden-section">
+
+            <div class="manual-head">
+                <div class="manual-head-icon">
+                    <i class="bi bi-journal-text"></i>
+                </div>
+                <div class="manual-head-text">
+                    <h3>Manual Case Entry</h3>
+                    <p>Enter the case details clearly for accurate AI-based legal analysis.</p>
+                </div>
+            </div>
+
+            <form method="POST">
+                <input type="hidden" name="entry_mode" value="manual">
+
+                <div class="manual-grid">
+
+                    <div>
+                        <label class="form-label">Case Title</label>
+                        <input type="text" name="title" class="form-control" placeholder="Enter case title" required>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Case Date</label>
+                        <input type="date" name="date" class="form-control" required>
+                    </div>
+
+                    <div class="form-group-full">
+                        <label class="form-label">Parties Involved</label>
+                        <input type="text" name="parties_involved" class="form-control" placeholder="Example: Plaintiff vs Defendant">
+                        <div class="input-hint">Mention both parties or the main persons involved in the case.</div>
+                    </div>
+
+                    <div class="form-group-full">
+                        <label class="form-label">Case Description</label>
+                        <textarea name="description" class="form-control" placeholder="Describe the case facts, timeline, events, and evidence details..." required></textarea>
+                        <div class="input-hint">Add clear facts, place, timeline, and important events for better results.</div>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn-analyze">
+                    <i class="bi bi-search me-2"></i>Analyze Case
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function showSection(type){
+    const uploadSection = document.getElementById("uploadSection");
+    const manualSection = document.getElementById("manualSection");
+
+    const uploadBtn = document.getElementById("uploadTabBtn");
+    const manualBtn = document.getElementById("manualTabBtn");
+
+    if(type === "upload"){
+        uploadSection.style.display = "block";
+        manualSection.style.display = "none";
+
+        uploadBtn.classList.add("active");
+        manualBtn.classList.remove("active");
+    } else {
+        uploadSection.style.display = "none";
+        manualSection.style.display = "block";
+
+        manualBtn.classList.add("active");
+        uploadBtn.classList.remove("active");
+    }
+}
+
+function updateFileName(input){
+    const fileName = document.getElementById("selectedFileName");
+
+    if(input.files && input.files.length > 0){
+        fileName.textContent = input.files[0].name;
+    } else {
+        fileName.textContent = "No file chosen";
+    }
+}
+
+</script>
+
+{% endblock %}

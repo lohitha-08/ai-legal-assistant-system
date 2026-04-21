@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<div class="police-page">
+    <div class="container police-container">
+
+        <!-- HEADER -->
+        <div class="page-header">
+            <h2 class="page-title">Police <span>Module</span></h2>
+            <p class="page-subtitle">
+                AI-powered tools for complaint handling, FIR drafting, investigation support, and case tracking.
+            </p>
+        </div>
+
+        <!-- MODULES -->
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('complaint_entry') }}" class="text-decoration-none">
+                    <div class="dashboard-card h-100">
+                        <div class="card-icon complaint-icon">
+                            <i class="bi bi-journal-text"></i>
+                        </div>
+                        <h5>Complaint Entry</h5>
+                        <p>Record and manage citizen complaints efficiently.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('fir_generator') }}" class="text-decoration-none">
+                    <div class="dashboard-card h-100">
+                        <div class="card-icon fir-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <h5>FIR Draft Generator</h5>
+                        <p>Generate structured FIR drafts with AI assistance.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('ipc_suggestion') }}" class="text-decoration-none">
+                    <div class="dashboard-card h-100">
+                        <div class="card-icon ipc-icon">
+                            <i class="bi bi-scale"></i>
+                        </div>
+                        <h5>IPC Suggestion</h5>
+                        <p>Get suitable IPC section recommendations based on case details.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('evidence_strength_page') }}" class="text-decoration-none">
+                    <div class="dashboard-card h-100">
+                        <div class="card-icon evidence-icon">
+                            <i class="bi bi-bar-chart-line-fill"></i>
+                        </div>
+                        <h5>Evidence Strength</h5>
+                        <p>Analyze available evidence and check case support level.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('investigation_notes') }}" class="text-decoration-none">
+                    <div class="dashboard-card h-100">
+                        <div class="card-icon notes-icon">
+                            <i class="bi bi-folder2-open"></i>
+                        </div>
+                        <h5>Investigation Notes</h5>
+                        <p>Maintain investigation records, progress, and officer notes.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('case_status') }}" class="text-decoration-none">
+                    <div class="dashboard-card h-100">
+                        <div class="card-icon status-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h5>Case Status Tracker</h5>
+                        <p>Track current status and updates of ongoing investigations.</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+
+.police-page{
+    min-height:100vh;
+    color:#FFFFFF;
+}
+
+.police-container{
+    padding-top:34px;
+    padding-bottom:70px;
+}
+
+/* HEADER */
+
+.page-header{
+    margin-bottom:28px;
+}
+
+.page-title{
+    font-size:2.2rem;
+    font-weight:700;
+}
+
+.page-title span{
+    color:#D4AF37;
+}
+
+.page-subtitle{
+    color:#C6BBD6;
+    font-size:0.95rem;
+    line-height:1.6;
+}
+
+/* CARDS */
+
+.dashboard-card{
+    background:linear-gradient(180deg, rgba(62,36,80,0.96), rgba(43,22,55,0.98));
+    border:1px solid #5A3A6B;
+    border-radius:20px;
+    padding:24px 20px;
+    transition:0.25s ease;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-6px);
+}
+
+/* ICON */
+
+.card-icon{
+    font-size:30px;
+    margin-bottom:14px;
+}
+
+/* TEXT */
+
+.dashboard-card h5{
+    font-size:1.05rem;
+    font-weight:600;
+}
+
+.dashboard-card p{
+    font-size:0.9rem;
+    color:#C6BBD6;
+}
+
+/* ICON COLORS */
+
+.complaint-icon{ color:#ffffff; }
+.fir-icon{ color:#ffffff; }
+.ipc-icon{ color:#ffffff; }
+.evidence-icon{ color:#ffffff; }
+.notes-icon{ color:#ffffff; }
+.status-icon{ color:#ffffff; }
+
+</style>
+
+{% endblock %}

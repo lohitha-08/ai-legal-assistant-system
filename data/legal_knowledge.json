@@ -1,0 +1,174 @@
+{
+  "divorce": {
+    "topic": "Divorce Procedure",
+    "explanation": "Divorce is the legal process of ending a marriage through court.",
+    "law": [
+      "Hindu Marriage Act, 1955 - Section 13",
+      "Special Marriage Act, 1954 - Section 27"
+    ],
+    "procedure": [
+      "File a divorce petition in the family court.",
+      "Court sends notice to the opposite party.",
+      "Both parties appear before the court.",
+      "Mediation or counselling may be conducted.",
+      "If reconciliation fails, the case proceeds.",
+      "Court issues divorce decree after hearing both sides."
+    ],
+    "evidence": [
+      "Marriage certificate",
+      "Identity proof",
+      "Address proof",
+      "Proof supporting the reason for divorce",
+      "Messages or documents if relevant"
+    ],
+    "opposite_party_action": [
+      "May contest the divorce petition",
+      "May deny allegations",
+      "May seek reconciliation",
+      "May file claims regarding maintenance or custody"
+    ],
+    "punishment_or_outcome": "This is generally a civil/family matter. The main outcome is divorce decree, maintenance, custody, or property-related orders.",
+    "risk_factors": [
+      "Delay in filing may complicate documentation",
+      "Child custody disputes may arise",
+      "Maintenance and property disputes may arise"
+    ],
+    "next_step": "Consult a family lawyer and file the petition in the appropriate family court."
+  },
+  "cheating": {
+    "topic": "Cheating / Fraud",
+    "explanation": "Cheating happens when a person dishonestly deceives another person and causes wrongful loss.",
+    "law": [
+      "IPC Section 420 - Cheating and dishonestly inducing delivery of property",
+      "IPC Section 406 - Criminal breach of trust"
+    ],
+    "procedure": [
+      "Collect proof of the transaction or promise.",
+      "File a police complaint or FIR if criminal cheating is involved.",
+      "Submit bank records, chats, receipts, or agreements.",
+      "Police may investigate and call both parties.",
+      "If sufficient evidence exists, further legal action may follow."
+    ],
+    "evidence": [
+      "Bank transaction proof",
+      "Screenshots of chats",
+      "Emails",
+      "Call records",
+      "Written agreement or receipt",
+      "Witness statements"
+    ],
+    "opposite_party_action": [
+      "May deny the transaction",
+      "May claim it was a civil dispute",
+      "May produce a different version of agreement",
+      "May seek anticipatory bail"
+    ],
+    "punishment_or_outcome": "Under IPC 420, punishment may extend up to 7 years and fine.",
+    "risk_factors": [
+      "Lack of written proof weakens the case",
+      "Delay in complaint may affect investigation",
+      "Oral promises are harder to prove"
+    ],
+    "next_step": "Preserve all transaction and communication records and file a complaint quickly."
+  },
+  "defamation": {
+    "topic": "Defamation",
+    "explanation": "Defamation means making or publishing false statements that harm a person's reputation.",
+    "law": [
+      "IPC Section 499 - Defamation",
+      "IPC Section 500 - Punishment for defamation"
+    ],
+    "procedure": [
+      "Collect proof of defamatory statement.",
+      "Preserve screenshots, audio, video, or publication copies.",
+      "Consult a lawyer for criminal complaint or civil remedy.",
+      "File complaint before the appropriate court if required."
+    ],
+    "evidence": [
+      "Screenshots of posts",
+      "Video or audio clips",
+      "Witness statements",
+      "News article or publication copy",
+      "Proof of reputational harm if available"
+    ],
+    "opposite_party_action": [
+      "May claim statement is true",
+      "May claim fair comment or opinion",
+      "May delete the content",
+      "May deny intention to harm reputation"
+    ],
+    "punishment_or_outcome": "Under IPC 500, punishment may extend to 2 years, or fine, or both.",
+    "risk_factors": [
+      "Deleted online posts should be preserved quickly",
+      "Truth and public interest may be used as defence",
+      "Delay may make evidence collection difficult"
+    ],
+    "next_step": "Save the content immediately and seek legal advice before filing complaint."
+  },
+  "domestic violence": {
+    "topic": "Domestic Violence",
+    "explanation": "Domestic violence includes physical, emotional, verbal, sexual, or economic abuse within a domestic relationship.",
+    "law": [
+      "Protection of Women from Domestic Violence Act, 2005",
+      "IPC Section 498A - Cruelty by husband or relatives"
+    ],
+    "procedure": [
+      "Approach police, protection officer, or magistrate.",
+      "File complaint with supporting facts.",
+      "Seek protection order, residence order, or maintenance if needed.",
+      "Medical treatment and documentation should be obtained in injury cases."
+    ],
+    "evidence": [
+      "Medical records",
+      "Photos of injuries",
+      "Witness statements",
+      "Messages or call recordings",
+      "Previous complaints",
+      "Financial records if economic abuse is involved"
+    ],
+    "opposite_party_action": [
+      "May deny abuse",
+      "May claim false complaint",
+      "May seek bail",
+      "May attempt compromise or settlement"
+    ],
+    "punishment_or_outcome": "Depending on facts, relief may include protection orders, maintenance, residence orders, and criminal action under relevant provisions.",
+    "risk_factors": [
+      "Delay in medical proof may weaken injury evidence",
+      "Threat or intimidation may continue",
+      "Dependence on opposite party may affect complaint process"
+    ],
+    "next_step": "Ensure immediate safety first, preserve evidence, and approach police or legal support."
+  },
+  "theft": {
+    "topic": "Theft",
+    "explanation": "Theft means dishonestly taking movable property without consent.",
+    "law": [
+      "IPC Section 379 - Theft"
+    ],
+    "procedure": [
+      "File a complaint or FIR at the nearest police station.",
+      "Provide item details and place/time of theft.",
+      "Submit any CCTV footage or ownership proof.",
+      "Police may investigate and recover stolen property."
+    ],
+    "evidence": [
+      "CCTV footage",
+      "Ownership bill or proof",
+      "Witness statements",
+      "Photographs",
+      "IMEI or serial number if device stolen"
+    ],
+    "opposite_party_action": [
+      "May deny involvement",
+      "May hide or transfer stolen property",
+      "May claim ownership"
+    ],
+    "punishment_or_outcome": "Punishment under IPC 379 may extend up to 3 years, or fine, or both.",
+    "risk_factors": [
+      "Missing ownership proof weakens recovery claim",
+      "Delay in reporting may reduce recovery chances"
+    ],
+    "next_step": "Report immediately and keep all ownership proof ready."
+  }
+}

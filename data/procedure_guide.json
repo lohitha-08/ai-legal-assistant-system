@@ -1,0 +1,98 @@
+{
+  "fir": {
+    "topic": "How to File an FIR",
+    "intro": "An FIR is the first official complaint recorded by police for a cognizable offence.",
+    "steps": [
+      "Go to the nearest police station.",
+      "Explain the incident clearly with date, time, and place.",
+      "Submit written complaint or give oral statement.",
+      "Provide proof or evidence if available.",
+      "Police records the FIR and gives acknowledgement or FIR copy.",
+      "Investigation starts after registration."
+    ],
+    "documents": [
+      "Identity proof",
+      "Written complaint",
+      "Photos, videos, or screenshots if available",
+      "Witness details if available"
+    ],
+    "important_notes": [
+      "Check whether all facts are correctly written before signing.",
+      "Keep FIR copy safely.",
+      "If police refuse, complaint may be escalated to higher authority."
+    ],
+    "next_step": "Visit the nearest police station and keep your supporting evidence ready."
+  },
+  "divorce": {
+    "topic": "How to File a Divorce Case",
+    "intro": "Divorce is the legal process of ending a marriage through family court.",
+    "steps": [
+      "Consult a lawyer and identify whether it is mutual or contested divorce.",
+      "Prepare petition with marriage details and grounds for divorce.",
+      "File the petition in the appropriate family court.",
+      "Court sends notice to the opposite party.",
+      "Both sides appear before court.",
+      "Mediation or counselling may happen.",
+      "If unresolved, the court hears the matter and passes decree."
+    ],
+    "documents": [
+      "Marriage certificate",
+      "Identity proof",
+      "Address proof",
+      "Supporting proof for grounds of divorce",
+      "Photos or communication records if relevant"
+    ],
+    "important_notes": [
+      "Child custody and maintenance issues may also be decided.",
+      "Mutual divorce is usually simpler than contested divorce."
+    ],
+    "next_step": "Consult a family lawyer and prepare required documents for filing."
+  },
+  "cyber complaint": {
+    "topic": "How to File a Cyber Crime Complaint",
+    "intro": "Cyber complaints can be filed for online fraud, hacking, fake accounts, blackmail, or digital abuse.",
+    "steps": [
+      "Preserve screenshots, transaction proof, and account details.",
+      "Do not delete chats, emails, or messages.",
+      "File complaint at cyber crime police station or online cyber portal.",
+      "Provide all digital evidence clearly.",
+      "Police or cyber cell reviews the complaint and may start investigation."
+    ],
+    "documents": [
+      "Screenshots",
+      "Transaction records",
+      "Phone number or email involved",
+      "Links or profile details",
+      "Identity proof"
+    ],
+    "important_notes": [
+      "Report quickly to improve recovery chances in fraud cases.",
+      "Keep original digital evidence safe."
+    ],
+    "next_step": "Collect all digital proof and file complaint with cyber crime authorities immediately."
+  },
+  "domestic violence": {
+    "topic": "How to File a Domestic Violence Complaint",
+    "intro": "Domestic violence complaints may be filed for physical, emotional, verbal, sexual, or economic abuse.",
+    "steps": [
+      "Ensure immediate safety first.",
+      "Approach police, protection officer, or magistrate.",
+      "Explain abuse details clearly.",
+      "Submit medical proof, photos, messages, or witness details if available.",
+      "Seek protection order, residence order, or maintenance if needed."
+    ],
+    "documents": [
+      "Medical records",
+      "Photos of injuries",
+      "Messages or call recordings",
+      "Witness details",
+      "Identity proof",
+      "Previous complaint details if any"
+    ],
+    "important_notes": [
+      "Medical documentation should be done as early as possible.",
+      "Legal protection and shelter support may also be available."
+    ],
+    "next_step": "Prioritize safety and contact police, legal aid, or protection officer."
+  }
+}

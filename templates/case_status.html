@@ -1,0 +1,337 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .case-page{
+        min-height: 100vh;
+        padding: 34px 14px 70px;
+        color: #ffffff;
+    }
+
+    .case-container{
+        max-width: 1040px;
+        margin: 0 auto;
+    }
+
+    .back-link{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: #D6DEEC;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 18px;
+        transition: 0.25s ease;
+    }
+
+    .back-link:hover{
+        color: #D4AF37;
+        transform: translateX(-2px);
+    }
+
+    .page-top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 26px;
+    }
+
+    .page-title{
+        font-size: 30px;
+        font-weight: 900;
+        margin: 0;
+        color: #FFFFFF;
+        letter-spacing: 0.5px;
+    }
+
+    .page-title span{
+        color: #D4AF37;
+    }
+
+    .page-subtitle{
+        margin-top: 6px;
+        color: #E2E8F0;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .top-chip{
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(212,175,55,0.24);
+        color: #F8FAFC;
+        padding: 10px 15px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+        backdrop-filter: blur(6px);
+    }
+
+    .case-card{
+        background: linear-gradient(180deg, rgba(62,36,80,0.96), rgba(43,22,55,0.98));
+        border: 1px solid #5A3A6B;
+        border-radius: 22px;
+        padding: 22px;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+    }
+
+    .case-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .case-header h3{
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0;
+        color: #FFFFFF;
+    }
+
+    .status-select{
+        min-width: 210px;
+        border-radius: 12px;
+        font-size: 14px;
+        border: 1px solid #6B4A7E;
+        padding: 10px 40px 10px 12px;
+        background:
+            rgba(255,255,255,0.05)
+            url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5H5z'/></svg>")
+            no-repeat right 12px center;
+        background-size: 14px;
+        color: #FFFFFF;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .status-select:focus{
+        border-color: #7C3AED;
+        box-shadow: 0 0 0 0.15rem rgba(124,58,237,0.18);
+        background:
+            rgba(255,255,255,0.08)
+            url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5H5z'/></svg>")
+            no-repeat right 12px center;
+        background-size: 14px;
+        color: #FFFFFF;
+    }
+
+    .status-select option{
+        color: #0F172A;
+        background: #ffffff;
+    }
+
+    .table-wrap{
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .table{
+        margin-bottom: 0;
+        background: transparent;
+    }
+
+    .table thead{
+        background: linear-gradient(135deg,#3B1F47,#2A1433);
+    }
+
+    .table thead th{
+        font-size: 13px;
+        color: #000000;
+        font-weight: 800;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding: 15px 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+    }
+
+    .table tbody td{
+        font-size: 14px;
+        color: #FFFFFF;
+        padding: 16px 14px;
+        vertical-align: middle;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        background: rgba(255,255,255,0.02);
+        font-weight: 500;
+    }
+
+    .table tbody tr{
+        transition: 0.2s ease;
+    }
+
+    .table tbody tr:hover td{
+        background: rgba(124,58,237,0.08);
+    }
+
+    .table tbody tr:last-child td{
+        border-bottom: none;
+    }
+
+    .fir-cell{
+        font-weight: 800;
+        color: #60A5FA;
+        text-shadow: 0 0 6px rgba(96,165,250,0.35);
+    }
+
+    .title-cell{
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+
+    .date-cell{
+        color: #E2E8F0;
+        font-weight: 600;
+    }
+
+    .badge-status{
+        display: inline-block;
+        padding: 8px 13px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        white-space: nowrap;
+        letter-spacing: 0.2px;
+    }
+
+    .status-investigation{
+        background: rgba(239,68,68,0.16);
+        color: #FCA5A5;
+        border: 1px solid rgba(239,68,68,0.24);
+    }
+
+    .status-charge{
+        background: rgba(59,130,246,0.16);
+        color: #93C5FD;
+        border: 1px solid rgba(59,130,246,0.22);
+    }
+
+    .status-review{
+        background: rgba(148,163,184,0.12);
+        color: #E2E8F0;
+        border: 1px solid rgba(203,213,225,0.20);
+    }
+
+    .status-closed{
+        background: rgba(139,92,246,0.16);
+        color: #D8B4FE;
+        border: 1px solid rgba(139,92,246,0.24);
+    }
+
+    .no-data{
+        text-align: center;
+        color: #D6DEEC;
+        padding: 24px 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    @media (max-width: 768px){
+        .page-title{
+            font-size: 25px;
+        }
+
+        .case-card{
+            padding: 16px;
+        }
+
+        .status-select{
+            width: 100%;
+            min-width: 100%;
+        }
+
+        .table thead th,
+        .table tbody td{
+            padding: 13px 10px;
+            font-size: 13px;
+        }
+    }
+</style>
+
+<div class="case-page">
+    <div class="case-container">
+
+        <a href="{{ url_for('police') }}" class="back-link">
+            <span>←</span> <span>Back to Police Module</span>
+        </a>
+
+        <div class="page-top">
+            <div>
+                <h2 class="page-title">Case Status <span>Tracker</span></h2>
+                <div class="page-subtitle">
+                    View FIR progress, investigation stage, and current case status.
+                </div>
+            </div>
+            <div class="top-chip">Police Case Monitoring</div>
+        </div>
+
+        <div class="case-card">
+            <div class="case-header">
+                <h3>Active Cases</h3>
+
+                <form method="GET" action="{{ url_for('case_status') }}">
+                    <select name="status" class="form-select status-select" onchange="this.form.submit()">
+                        <option value="All Statuses" {% if selected_status == "All Statuses" %}selected{% endif %}>All Statuses</option>
+                        <option value="Investigation" {% if selected_status == "Investigation" %}selected{% endif %}>Investigation</option>
+                        <option value="Charge Sheet Filed" {% if selected_status == "Charge Sheet Filed" %}selected{% endif %}>Charge Sheet Filed</option>
+                        <option value="Under Review" {% if selected_status == "Under Review" %}selected{% endif %}>Under Review</option>
+                        <option value="Closed" {% if selected_status == "Closed" %}selected{% endif %}>Closed</option>
+                    </select>
+                </form>
+            </div>
+
+            <div class="table-responsive table-wrap">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>FIR No.</th>
+                            <th>Case Title</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if cases %}
+                            {% for case in cases %}
+                            <tr>
+                                <td class="fir-cell">{{ case.fir_no }}</td>
+                                <td class="title-cell">{{ case.case_title }}</td>
+                                <td class="date-cell">{{ case.date }}</td>
+                                <td>
+                                    {% if case.status == "Investigation" %}
+                                        <span class="badge-status status-investigation">{{ case.status }}</span>
+                                    {% elif case.status == "Charge Sheet Filed" %}
+                                        <span class="badge-status status-charge">{{ case.status }}</span>
+                                    {% elif case.status == "Under Review" %}
+                                        <span class="badge-status status-review">{{ case.status }}</span>
+                                    {% elif case.status == "Closed" %}
+                                        <span class="badge-status status-closed">{{ case.status }}</span>
+                                    {% else %}
+                                        <span class="badge-status status-review">{{ case.status }}</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="4" class="no-data">No cases found</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

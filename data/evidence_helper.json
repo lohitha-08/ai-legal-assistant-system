@@ -1,0 +1,136 @@
+{
+  "theft": {
+    "topic": "Evidence for Theft Case",
+    "intro": "In a theft case, proof should show ownership of the item and circumstances of the theft.",
+    "evidence_list": [
+      "CCTV footage",
+      "Witness statements",
+      "Photographs of scene",
+      "Ownership bill or receipt",
+      "IMEI or serial number for device",
+      "Any nearby shop or street camera details"
+    ],
+    "documents": [
+      "Identity proof",
+      "Purchase bill or ownership proof",
+      "Complaint copy or FIR copy if filed"
+    ],
+    "important_notes": [
+      "Report theft quickly to improve recovery chances.",
+      "Keep IMEI or serial number ready for stolen devices."
+    ],
+    "next_step": "Collect ownership proof and file complaint or FIR immediately."
+  },
+  "fraud": {
+    "topic": "Evidence for Fraud / Cheating Case",
+    "intro": "Fraud cases need proof of false promise, dishonest intention, and financial or property loss.",
+    "evidence_list": [
+      "Bank transaction proof",
+      "Screenshots of chats",
+      "Emails",
+      "Call recordings or logs",
+      "Written agreements or receipts",
+      "Witness statements"
+    ],
+    "documents": [
+      "Identity proof",
+      "Bank statement",
+      "Complaint copy if already submitted"
+    ],
+    "important_notes": [
+      "Preserve original chats and emails.",
+      "Do not delete transaction messages or screenshots."
+    ],
+    "next_step": "Organize financial and communication proof before filing complaint."
+  },
+  "assault": {
+    "topic": "Evidence for Assault Case",
+    "intro": "Assault cases require proof of injury, attack, and involvement of the opposite party.",
+    "evidence_list": [
+      "Medical report",
+      "Injury photographs",
+      "Witness statements",
+      "Weapon details if any",
+      "Hospital records",
+      "CCTV footage"
+    ],
+    "documents": [
+      "Identity proof",
+      "Medical documents",
+      "Complaint or FIR copy"
+    ],
+    "important_notes": [
+      "Medical examination should be done as early as possible.",
+      "Take clear injury photos before they fade."
+    ],
+    "next_step": "Get medical treatment first and preserve injury evidence immediately."
+  },
+  "domestic violence": {
+    "topic": "Evidence for Domestic Violence Case",
+    "intro": "Domestic violence may include physical, emotional, verbal, sexual, or economic abuse, so different kinds of proof may help.",
+    "evidence_list": [
+      "Medical records",
+      "Photos of injuries",
+      "Messages or chats",
+      "Call recordings",
+      "Witness statements",
+      "Previous complaint records",
+      "Financial proof in case of economic abuse"
+    ],
+    "documents": [
+      "Identity proof",
+      "Marriage-related documents if relevant",
+      "Medical proof",
+      "Complaint records if any"
+    ],
+    "important_notes": [
+      "Safety is the first priority.",
+      "Keep evidence in a safe place away from the abuser if needed."
+    ],
+    "next_step": "Ensure safety, then gather medical and communication evidence."
+  },
+  "defamation": {
+    "topic": "Evidence for Defamation Case",
+    "intro": "Defamation cases need proof of false statements and proof that reputation was harmed.",
+    "evidence_list": [
+      "Screenshots of posts",
+      "News article or publication copy",
+      "Video or audio recording",
+      "Witness statements",
+      "Proof that statement was shared publicly"
+    ],
+    "documents": [
+      "Identity proof",
+      "Copies of online or printed content",
+      "Any legal notice sent or received"
+    ],
+    "important_notes": [
+      "Take screenshots quickly before the content is deleted.",
+      "Keep date and source of publication clearly recorded."
+    ],
+    "next_step": "Save the defamatory content immediately and document where it appeared."
+  },
+  "cyber crime": {
+    "topic": "Evidence for Cyber Crime Case",
+    "intro": "Cyber crime cases require digital evidence showing account misuse, fraud, hacking, impersonation, or online abuse.",
+    "evidence_list": [
+      "Screenshots",
+      "Email records",
+      "Website or profile links",
+      "Transaction details",
+      "Phone number or email used by accused",
+      "Device details",
+      "IP logs if available"
+    ],
+    "documents": [
+      "Identity proof",
+      "Bank details if money loss happened",
+      "Complaint acknowledgement if already filed"
+    ],
+    "important_notes": [
+      "Do not delete chats, mails, or account notifications.",
+      "Report quickly in online fraud cases."
+    ],
+    "next_step": "Preserve digital proof and file complaint with cyber crime authorities."
+  }
+}

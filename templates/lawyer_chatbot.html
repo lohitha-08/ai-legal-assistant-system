@@ -1,0 +1,651 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Inter',sans-serif;
+}
+
+/* PAGE */
+
+.chatbot-page{
+    max-width:1180px;
+    margin:0 auto;
+    padding:36px 16px 70px;
+}
+
+/* BACK LINK */
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:#D1C7E0;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:18px;
+    transition:0.25s ease;
+}
+
+.back-link:hover{
+    color:#D4AF37;
+    transform:translateX(-2px);
+}
+
+/* TOP HERO */
+
+.hero-card{
+    background:
+        radial-gradient(circle at top left, rgba(79,70,229,0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,0.08), transparent 35%),
+        linear-gradient(135deg,#301934,#3B1F47,#26122B);
+    border:1px solid #5A3A6B;
+    border-radius:24px;
+    padding:28px 26px;
+    color:#FFFFFF;
+    box-shadow:0 16px 36px rgba(0,0,0,0.28);
+    margin-bottom:24px;
+}
+
+.hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.hero-title-wrap h1{
+    font-size:32px;
+    font-weight:800;
+    margin:0 0 8px;
+    letter-spacing:0.2px;
+}
+
+.hero-title-wrap h1 span{
+    color:#D4AF37;
+}
+
+.hero-subtitle{
+    color:#B8AFC6;
+    font-size:14px;
+    line-height:1.8;
+    margin:0;
+    max-width:760px;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid #5A3A6B;
+    color:#E5E4E2;
+    border-radius:999px;
+    padding:10px 15px;
+    font-size:13px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+/* MAIN GRID */
+
+.chat-layout{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:20px;
+    align-items:start;
+}
+
+/* SHARED CARD */
+
+.sidebar-card,
+.chat-main-card{
+    background:linear-gradient(180deg, rgba(62,36,80,0.96), rgba(43,22,55,0.98));
+    border:1px solid #5A3A6B;
+    border-radius:22px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.22);
+}
+
+/* SIDEBAR */
+
+.sidebar-card{
+    padding:20px;
+    max-height:720px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    position:sticky;
+    top:18px;
+}
+
+.sidebar-title{
+    color:#FFFFFF;
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:14px;
+    flex-shrink:0;
+}
+
+.sidebar-scroll{
+    overflow-y:auto;
+    padding-right:4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar{
+    width:7px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb{
+    background:#5A3A6B;
+    border-radius:10px;
+}
+
+.feature-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.feature-item{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(90,58,107,0.70);
+    border-radius:14px;
+    padding:12px 14px;
+    color:#D1C7E0;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.feature-item i{
+    color:#D4AF37;
+    font-size:15px;
+    margin-top:2px;
+    flex-shrink:0;
+}
+
+/* QUICK CHIPS */
+
+.quick-box{
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid rgba(90,58,107,0.55);
+}
+
+.quick-title{
+    color:#FFFFFF;
+    font-size:15px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.quick-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.quick-chip{
+    border:none;
+    border-radius:999px;
+    padding:9px 12px;
+    font-size:12px;
+    font-weight:700;
+    background:#2A1433;
+    color:#E5E4E2;
+    border:1px solid #5A3A6B;
+    cursor:pointer;
+    transition:0.22s ease;
+}
+
+.quick-chip:hover{
+    background:#4A2B60;
+    color:#D4AF37;
+    transform:translateY(-1px);
+}
+
+/* CHAT PANEL */
+
+.chat-main-card{
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    min-height:720px;
+    max-height:720px;
+}
+
+.chat-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    padding:18px 20px;
+    border-bottom:1px solid rgba(90,58,107,0.75);
+    background:rgba(255,255,255,0.03);
+    flex-shrink:0;
+}
+
+.chat-header-left h3{
+    color:#FFFFFF;
+    font-size:20px;
+    font-weight:800;
+    margin:0 0 4px;
+}
+
+.chat-header-left p{
+    color:#B8AFC6;
+    font-size:13px;
+    margin:0;
+}
+
+.status-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:rgba(34,197,94,0.14);
+    color:#BBF7D0;
+    border:1px solid rgba(34,197,94,0.30);
+    font-size:12px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+/* CHAT BOX */
+
+.chat-box{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
+    scroll-behavior:smooth;
+    background:
+        radial-gradient(circle at top right, rgba(79,70,229,0.08), transparent 28%),
+        rgba(255,255,255,0.01);
+}
+
+.chat-box::-webkit-scrollbar{
+    width:8px;
+}
+
+.chat-box::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.chat-box::-webkit-scrollbar-thumb{
+    background:#5A3A6B;
+    border-radius:10px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover{
+    background:#7C3AED;
+}
+
+/* MESSAGES */
+
+.bot-message,
+.user-message{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+}
+
+.bot-message{
+    align-items:flex-start;
+}
+
+.user-message{
+    align-items:flex-end;
+}
+
+.msg-label{
+    font-size:12px;
+    font-weight:700;
+    color:#B8AFC6;
+    margin-bottom:6px;
+    padding:0 2px;
+}
+
+.msg-bubble{
+    max-width:82%;
+    padding:14px 16px;
+    border-radius:16px;
+    font-size:14px;
+    line-height:1.8;
+    word-break:break-word;
+    box-shadow:0 10px 22px rgba(0,0,0,0.14);
+}
+
+.bot-message .msg-bubble{
+    background:rgba(255,255,255,0.05);
+    color:#E5E4E2;
+    border:1px solid rgba(90,58,107,0.75);
+    border-top-left-radius:8px;
+}
+
+.user-message .msg-bubble{
+    background:linear-gradient(135deg,#6D28D9,#7C3AED);
+    color:#FFFFFF;
+    border-top-right-radius:8px;
+}
+
+/* INPUT AREA */
+
+.chat-form{
+    padding:16px 20px;
+    border-top:1px solid rgba(90,58,107,0.75);
+    background:rgba(255,255,255,0.03);
+    flex-shrink:0;
+}
+
+.input-shell{
+    display:flex;
+    align-items:flex-end;
+    gap:12px;
+    background:#2A1433;
+    border:1px solid #5A3A6B;
+    border-radius:16px;
+    padding:10px 12px;
+    transition:0.22s ease;
+}
+
+.input-shell:focus-within{
+    border-color:#7C3AED;
+    box-shadow:0 0 0 2px rgba(124,58,237,0.10);
+}
+
+.chat-input{
+    flex:1;
+    background:transparent;
+    border:none;
+    color:#FFFFFF;
+    resize:none;
+    min-height:44px;
+    max-height:120px;
+    padding:8px 6px;
+    outline:none;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.chat-input::placeholder{
+    color:#9F8FB5;
+}
+
+.send-btn{
+    background:linear-gradient(135deg,#6D28D9,#7C3AED);
+    border:none;
+    color:#FFFFFF;
+    font-weight:700;
+    border-radius:12px;
+    padding:10px 16px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:0.2s;
+    white-space:nowrap;
+    box-shadow:0 10px 18px rgba(109,40,217,0.18);
+}
+
+.send-btn:hover{
+    transform:translateY(-1px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px){
+    .chat-layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar-card{
+        position:static;
+        max-height:none;
+    }
+
+    .sidebar-scroll{
+        max-height:none;
+        overflow:visible;
+    }
+
+    .chat-main-card{
+        min-height:620px;
+        max-height:none;
+    }
+}
+
+@media (max-width: 768px){
+    .hero-title-wrap h1{
+        font-size:26px;
+    }
+
+    .msg-bubble{
+        max-width:100%;
+    }
+
+    .chat-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .input-shell{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .send-btn{
+        width:100%;
+        justify-content:center;
+    }
+}
+
+@media (max-width: 576px){
+    .chatbot-page{
+        padding:28px 12px 50px;
+    }
+
+    .hero-card,
+    .sidebar-card,
+    .chat-main-card{
+        border-radius:18px;
+    }
+
+    .hero-card{
+        padding:22px 18px;
+    }
+
+    .chat-box{
+        padding:16px;
+    }
+
+    .chat-form{
+        padding:14px 16px;
+    }
+}
+
+</style>
+
+<div class="chatbot-page">
+
+    <a href="{{ url_for('lawyer') }}" class="back-link">
+        <i class="bi bi-arrow-left"></i> Back to Lawyer Module
+    </a>
+
+    <div class="hero-card">
+        <div class="hero-top">
+            <div class="hero-title-wrap">
+                <h1>Lawyer <span>Chatbot</span></h1>
+                <p class="hero-subtitle">
+                    Ask legal terms, IPC/BNS sections, punishment, bail, rights, procedure, evidence, legal documents, and case-related questions in a cleaner AI assistant workspace.
+                </p>
+            </div>
+
+            <div class="hero-badge">
+                <i class="bi bi-shield-check"></i> Legal AI Assistant
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-layout">
+
+        <div class="sidebar-card">
+            <div class="sidebar-title">Available Features</div>
+
+            <div class="sidebar-scroll">
+                <div class="feature-list">
+                    {% for feature in features %}
+                        <div class="feature-item">
+                            <i class="bi bi-check2-circle"></i>
+                            <span>{{ feature }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="quick-box">
+                    <div class="quick-title">Quick Questions</div>
+                    <div class="quick-chips">
+                        <button type="button" class="quick-chip" onclick="setQuickQuestion('Explain IPC 420')">Explain IPC 420</button>
+                        <button type="button" class="quick-chip" onclick="setQuickQuestion('What is bail?')">What is bail?</button>
+                        <button type="button" class="quick-chip" onclick="setQuickQuestion('What documents are needed for a case?')">Case documents</button>
+                        <button type="button" class="quick-chip" onclick="setQuickQuestion('Predict section for cheating case')">Cheating case section</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-main-card">
+
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <h3>Ask the Lawyer Chatbot</h3>
+                    <p>Educational legal support interface</p>
+                </div>
+
+                <span class="status-badge">
+                    <i class="bi bi-check-circle-fill"></i> Online
+                </span>
+            </div>
+
+            <div id="chatBox" class="chat-box">
+                <div class="bot-message">
+                    <div class="msg-label">Bot</div>
+                    <div class="msg-bubble">
+                        Hello! You can ask me things like:
+                        <br>• Explain IPC 420
+                        <br>• What is bail?
+                        <br>• What documents are needed for a case?
+                        <br>• Predict section for cheating case
+                    </div>
+                </div>
+            </div>
+
+            <form id="chatForm" class="chat-form">
+                <div class="input-shell">
+                    <textarea
+                        id="message"
+                        name="message"
+                        class="form-control chat-input"
+                        rows="2"
+                        placeholder="Type your legal question here..."></textarea>
+
+                    <button type="submit" class="btn send-btn">
+                        <i class="bi bi-send-fill me-1"></i> Send
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const chatForm = document.getElementById("chatForm");
+const messageInput = document.getElementById("message");
+const chatBox = document.getElementById("chatBox");
+
+messageInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        chatForm.requestSubmit();
+    }
+});
+
+chatForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const message = messageInput.value.trim();
+    if (!message) return;
+
+    chatBox.innerHTML += `
+        <div class="user-message">
+            <div class="msg-label">You</div>
+            <div class="msg-bubble">${escapeHtml(message)}</div>
+        </div>
+    `;
+
+    messageInput.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    const formData = new FormData();
+    formData.append("message", message);
+
+    try {
+        const response = await fetch("/chatbot_response", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        chatBox.innerHTML += `
+            <div class="bot-message">
+                <div class="msg-label">Bot</div>
+                <div class="msg-bubble">${formatBotReply(data.response)}</div>
+            </div>
+        `;
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+    } catch (error) {
+        chatBox.innerHTML += `
+            <div class="bot-message">
+                <div class="msg-label">Bot</div>
+                <div class="msg-bubble">Something went wrong while getting the chatbot response.</div>
+            </div>
+        `;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+});
+
+function setQuickQuestion(text){
+    messageInput.value = text;
+    messageInput.focus();
+}
+
+function escapeHtml(text) {
+    return text
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function formatBotReply(text) {
+    let safe = escapeHtml(text || "");
+    safe = safe.replace(/\n/g, "<br>");
+    safe = safe.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    return safe;
+}
+</script>
+
+{% endblock %}

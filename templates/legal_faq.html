@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+body{
+    background:
+        radial-gradient(circle at 15% 20%, rgba(124,58,237,0.20), transparent 25%),
+        radial-gradient(circle at 85% 25%, rgba(212,175,55,0.12), transparent 25%),
+        radial-gradient(circle at 70% 85%, rgba(79,70,229,0.14), transparent 28%),
+        linear-gradient(135deg,#1a0d25 0%, #301934 40%, #3B1F47 75%, #26122B 100%);
+    color:#fff;
+    min-height:100vh;
+}
+
+.box{
+    max-width:920px;
+    margin:auto;
+    padding:38px 16px 60px;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:#eee4f7;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:18px;
+    transition:0.25s ease;
+}
+
+.back-link:hover{
+    color:#D4AF37;
+    transform:translateX(-2px);
+}
+
+.card{
+    background:
+        radial-gradient(circle at top left, rgba(79,70,229,0.16), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,0.08), transparent 35%),
+        linear-gradient(135deg,#3E2450,#2b1837);
+    padding:28px 24px;
+    border-radius:24px;
+    box-shadow:0 16px 36px rgba(0,0,0,0.30);
+    border:1px solid rgba(255,255,255,0.07);
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:-50px;
+    right:-50px;
+    width:140px;
+    height:140px;
+    background:radial-gradient(circle, rgba(212,175,55,0.10), transparent 70%);
+    pointer-events:none;
+}
+
+.badge-line{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    color:#efe7f7;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.badge-line i{
+    color:#D4AF37;
+}
+
+h2{
+    margin:0 0 8px;
+    font-size:30px;
+    font-weight:900;
+    color:#fff;
+}
+
+h2 span{
+    color:#D4AF37;
+}
+
+.sub{
+    color:#d7cce3;
+    font-size:14px;
+    margin-bottom:18px;
+    line-height:1.7;
+    max-width:700px;
+}
+
+.form-box{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:18px;
+    padding:18px;
+}
+
+.label{
+    display:block;
+    font-size:14px;
+    font-weight:700;
+    color:#f3ecf9;
+    margin-bottom:10px;
+}
+
+textarea{
+    width:100%;
+    min-height:140px;
+    border-radius:16px;
+    padding:14px 16px;
+    border:1px solid rgba(122,82,145,0.8);
+    outline:none;
+    resize:none;
+    font-size:14px;
+    line-height:1.7;
+    background:rgba(255,255,255,0.05);
+    color:#fff;
+    transition:0.25s ease;
+}
+
+textarea::placeholder{
+    color:#b8afc6;
+}
+
+textarea:focus{
+    border-color:#D4AF37;
+    box-shadow:0 0 0 4px rgba(212,175,55,0.12);
+    background:rgba(255,255,255,0.06);
+}
+
+.helper{
+    color:#b8afc6;
+    font-size:12px;
+    margin-top:10px;
+    line-height:1.6;
+}
+
+button{
+    margin-top:14px;
+    padding:12px 22px;
+    background:#D4AF37;
+    color:#26122B;
+    border:none;
+    border-radius:12px;
+    font-weight:800;
+    cursor:pointer;
+    transition:0.25s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+button:hover{
+    background:#e6c65c;
+    transform:translateY(-2px);
+}
+.error{
+    color:#ffb4b4;
+    margin-top:14px;
+    background:rgba(220,38,38,0.10);
+    border:1px solid rgba(220,38,38,0.24);
+    padding:12px 14px;
+    border-radius:12px;
+}
+
+@media (max-width:768px){
+    .box{
+        padding:24px 12px 50px;
+    }
+
+    .card{
+        padding:22px 18px;
+        border-radius:20px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    textarea{
+        min-height:120px;
+    }
+}
+</style>
+
+<div class="box">
+
+    <a href="{{ url_for('public_page') }}" class="back-link">
+        <i class="bi bi-arrow-left"></i> Back to Public Module
+    </a>
+
+    <div class="card">
+
+        <div class="badge-line">
+            <i class="bi bi-chat-dots"></i>
+            Public Legal Help
+        </div>
+
+        <h2>Legal <span>FAQ</span></h2>
+        <div class="sub">Ask a common legal question and get a simple answer in an easy-to-understand format.</div>
+
+        <form method="POST" action="{{ url_for('legal_faq') }}">
+            <div class="form-box">
+                <label class="label">Your Question</label>
+                <textarea name="query" placeholder="Example: What is FIR?"></textarea>
+                <div class="helper">Ask short and clear questions about common legal topics, police complaint, FIR, arrest, rights, or evidence.</div>
+                <button type="submit">
+                    <i class="bi bi-send-fill"></i> Ask
+                </button>
+            </div>
+        </form>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

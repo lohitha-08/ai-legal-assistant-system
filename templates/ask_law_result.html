@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+body{
+    background:
+        radial-gradient(circle at top left, rgba(79,70,229,0.16), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,0.10), transparent 22%),
+        linear-gradient(135deg,#160f1f 0%, #22122d 45%, #120b18 100%);
+    min-height:100vh;
+    color:#fff;
+}
+
+.result-container{
+    max-width:980px;
+    margin:auto;
+    padding:34px 16px 60px;
+}
+
+.result-card{
+    background:
+        radial-gradient(circle at top left, rgba(79,70,229,0.16), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,0.08), transparent 35%),
+        linear-gradient(135deg,#301934,#3B1F47,#26122B);
+    border:1px solid #5A3A6B;
+    border-radius:24px;
+    padding:30px 28px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.34);
+}
+
+.page-title{
+    font-size:30px;
+    font-weight:800;
+    margin-bottom:8px;
+    color:#fff;
+}
+
+.page-title span{
+    color:#D4AF37;
+}
+
+.page-sub{
+    color:#CFC3DA;
+    font-size:14px;
+    line-height:1.7;
+    margin-bottom:22px;
+}
+
+.question-box{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:16px 18px;
+    margin-bottom:22px;
+}
+
+.question-label{
+    font-size:12px;
+    font-weight:700;
+    color:#D4AF37;
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+    display:block;
+    margin-bottom:6px;
+}
+
+.question-text{
+    color:#F2EAF9;
+    font-size:14px;
+    line-height:1.7;
+    margin:0;
+}
+
+.result-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.result-icon{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    background:rgba(212,175,55,0.12);
+    color:#D4AF37;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    flex-shrink:0;
+}
+
+.result-main-title{
+    font-size:22px;
+    font-weight:800;
+    margin:0;
+    color:#fff;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.info-box{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:18px;
+}
+
+.full-width{
+    grid-column:1 / -1;
+}
+
+.info-label{
+    display:block;
+    color:#D4AF37;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:8px;
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+}
+
+.info-text{
+    color:#EDE4F4;
+    font-size:14px;
+    line-height:1.7;
+    margin:0;
+}
+
+.list-box{
+    margin:0;
+    padding-left:18px;
+    color:#EDE4F4;
+}
+
+.list-box li{
+    margin-bottom:8px;
+    line-height:1.6;
+}
+
+.action-row{
+    margin-top:24px;
+}
+
+.action-btn{
+    text-decoration:none;
+    background:linear-gradient(135deg,#D4AF37,#B8860B);
+    color:#1d1022;
+    border:none;
+    padding:12px 18px;
+    border-radius:14px;
+    font-weight:800;
+    font-size:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+@media (max-width:768px){
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+
+<div class="result-container">
+    <div class="result-card">
+        <h2 class="page-title">Legal <span>Guidance Result</span></h2>
+        <p class="page-sub">Based on your question, here is a simple legal guidance summary.</p>
+
+        <div class="question-box">
+            <span class="question-label">Your Question</span>
+            <p class="question-text">{{ question }}</p>
+        </div>
+
+        <div class="result-head">
+            <div class="result-icon">
+                <i class="bi bi-lightbulb-fill"></i>
+            </div>
+            <h3 class="result-main-title">{{ result.title }}</h3>
+        </div>
+
+        <div class="result-grid">
+            <div class="info-box">
+                <span class="info-label">Relevant IPC / Legal Section</span>
+                <p class="info-text">{{ result.section }}</p>
+            </div>
+
+            <div class="info-box">
+                <span class="info-label">Possible Punishment</span>
+                <p class="info-text">{{ result.punishment }}</p>
+            </div>
+
+            <div class="info-box full-width">
+                <span class="info-label">Simple Explanation</span>
+                <p class="info-text">{{ result.explanation }}</p>
+            </div>
+
+            <div class="info-box">
+                <span class="info-label">What To Do Next</span>
+                <ul class="list-box">
+                    {% for step in result.next_steps %}
+                    <li>{{ step }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <span class="info-label">Evidence To Collect</span>
+                <ul class="list-box">
+                    {% for item in result.evidence %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="info-box full-width">
+                <span class="info-label">Your Rights</span>
+                <p class="info-text">{{ result.rights }}</p>
+            </div>
+        </div>
+
+        <div class="action-row">
+            <a href="{{ url_for('ask_law') }}" class="action-btn">
+                <i class="bi bi-arrow-repeat"></i> Ask Another Question
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+body{
+    font-family:'Inter', sans-serif;
+    background:linear-gradient(135deg, #160f1f 0%, #22122d 45%, #120b18 100%);
+    color:#e5e7eb;
+    min-height:100vh;
+}
+
+.ipc-page{
+    padding:24px 12px 40px;
+}
+
+.ipc-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:#d6deec;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:16px;
+    transition:0.2s ease;
+}
+
+.back-link:hover{
+    color:#D4AF37;
+}
+
+.page-header{
+    margin-bottom:18px;
+}
+
+.page-title{
+    font-size:28px;
+    font-weight:800;
+    color:#ffffff;
+    margin-bottom:6px;
+}
+
+.page-title span{
+    color:#D4AF37;
+}
+
+.page-subtitle{
+    font-size:13px;
+    color:#cbd5e1;
+    margin:0;
+    line-height:1.6;
+}
+
+.ipc-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:18px;
+}
+
+.card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+    padding-bottom:12px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.card-title{
+    font-size:20px;
+    font-weight:700;
+    color:#ffffff;
+    margin:0;
+}
+
+.card-title i{
+    color:#22d3ee;
+    margin-right:8px;
+}
+
+.status-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(34,197,94,0.12);
+    color:#86efac;
+    border:1px solid rgba(34,197,94,0.22);
+    font-size:12px;
+    font-weight:700;
+}
+
+.text-box,
+.result-box{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:12px;
+    padding:14px;
+}
+
+.text-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    font-weight:700;
+    color:#D4AF37;
+    text-transform:uppercase;
+    letter-spacing:0.6px;
+    margin-bottom:8px;
+}
+
+.text-content{
+    color:#f8fafc;
+    font-size:14px;
+    line-height:1.7;
+    word-break:break-word;
+    font-family:'Inter', sans-serif;
+}
+
+.result-item{
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.result-item:first-child{
+    padding-top:0;
+}
+
+.result-item:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+}
+
+.result-value{
+    color:#f8fafc;
+    font-size:14px;
+    line-height:1.8;
+    word-break:break-word;
+}
+
+.btn-row{
+    margin-top:16px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.action-btn{
+    padding:10px 16px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:none;
+    cursor:pointer;
+    transition:0.2s ease;
+}
+
+.btn-primary-custom{
+    background:#22d3ee;
+    color:#05131a;
+}
+
+.btn-primary-custom:hover{
+    opacity:0.9;
+    color:#05131a;
+}
+
+.btn-secondary-custom{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.10);
+    color:#ffffff;
+}
+
+.btn-secondary-custom:hover{
+    color:#D4AF37;
+}
+
+.copy-msg{
+    display:none;
+    margin-top:10px;
+    font-size:13px;
+    color:#86efac;
+    font-weight:600;
+}
+
+@media(max-width:768px){
+    .page-title{
+        font-size:24px;
+    }
+
+    .card-head{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .status-badge{
+        width:100%;
+        justify-content:center;
+    }
+
+    .btn-row{
+        flex-direction:column;
+    }
+
+    .action-btn{
+        width:100%;
+        justify-content:center;
+    }
+}
+</style>
+
+<div class="ipc-page">
+    <div class="ipc-container">
+
+        <a href="{{ url_for('ipc_suggestion') }}" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to IPC Suggestion</span>
+        </a>
+
+        <div class="page-header">
+            <h2 class="page-title">IPC <span>Suggestions</span></h2>
+            <p class="page-subtitle">
+                Review the complaint details and suggested IPC sections below.
+            </p>
+        </div>
+
+        <div class="ipc-card">
+            <div class="card-head">
+                <h3 class="card-title">
+                    <i class="bi bi-file-earmark-text"></i> Case Input
+                </h3>
+                <div class="status-badge">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Ready
+                </div>
+            </div>
+
+            <div class="text-box">
+                <div class="text-label">
+                    <i class="bi bi-chat-left-text"></i> Submitted Details
+                </div>
+                <div class="text-content">{{ case_text }}</div>
+            </div>
+        </div>
+
+        <div class="ipc-card">
+            <div class="card-head">
+                <h3 class="card-title">
+                    <i class="bi bi-search"></i> IPC Suggestion Result
+                </h3>
+                <div class="status-badge">
+                    <i class="bi bi-shield-check"></i>
+                    Complete
+                </div>
+            </div>
+
+            {% if result %}
+            <div class="result-box" id="ipcResultText">
+
+                <div class="result-item">
+                    <div class="text-label">
+                        <i class="bi bi-bookmark-star"></i> Title
+                    </div>
+                    <div class="result-value">{{ result.get('title', 'Not available') }}</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="text-label">
+                        <i class="bi bi-journal-text"></i> Section
+                    </div>
+                    <div class="result-value">{{ result.get('section', 'Not available') }}</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="text-label">
+                        <i class="bi bi-card-text"></i> Description
+                    </div>
+                    <div class="result-value">{{ result.get('description', 'Not available') }}</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="text-label">
+                        <i class="bi bi-exclamation-circle"></i> Punishment
+                    </div>
+                    <div class="result-value">{{ result.get('punishment', 'Not available') }}</div>
+                </div>
+
+            </div>
+            {% else %}
+            <div class="result-box">
+                <div class="text-content">No IPC suggestion found.</div>
+            </div>
+            {% endif %}
+
+            <div class="btn-row">
+                <button class="action-btn btn-primary-custom" onclick="copyResult()">
+                    <i class="bi bi-clipboard"></i> Copy Result
+                </button>
+
+                <a href="{{ url_for('ipc_suggestion') }}" class="action-btn btn-secondary-custom">
+                    <i class="bi bi-arrow-repeat"></i> Analyze Another
+                </a>
+            </div>
+
+            <div id="copyMsg" class="copy-msg">
+                Copied successfully
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function copyResult() {
+    const title = `Title: {{ result.get('title', 'Not available') if result else 'Not available' }}`;
+    const section = `Section: {{ result.get('section', 'Not available') if result else 'Not available' }}`;
+    const description = `Description: {{ result.get('description', 'Not available') if result else 'Not available' }}`;
+    const punishment = `Punishment: {{ result.get('punishment', 'Not available') if result else 'Not available' }}`;
+
+    const text = `${title}\n${section}\n${description}\n${punishment}`;
+
+    navigator.clipboard.writeText(text).then(function () {
+        const msg = document.getElementById("copyMsg");
+        msg.style.display = "block";
+        setTimeout(() => {
+            msg.style.display = "none";
+        }, 2000);
+    });
+}
+</script>
+
+{% endblock %}

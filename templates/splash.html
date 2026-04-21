@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Legal Assistant</title>
+
+<script>
+setTimeout(function(){
+    window.location.href="/home";
+},3000);
+</script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:"Segoe UI",sans-serif;
+    color:white;
+
+    background:
+    radial-gradient(circle at top, rgba(79,70,229,0.18), transparent 40%),
+    radial-gradient(circle at bottom, rgba(212,175,55,0.10), transparent 40%),
+    linear-gradient(135deg,#301934,#3B1F47,#26122B);
+}
+
+.card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:30px 40px;
+    text-align:center;
+}
+
+.logo{
+    width:500px;
+    margin-bottom:10px;
+}
+
+.progress-box{
+    width:300px;
+    height:10px;
+    background:#2A1433;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:14px;
+    box-shadow:
+        inset 0 0 8px rgba(0,0,0,0.35),
+        0 0 10px rgba(79,70,229,0.12);
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#4F46E5,#7C3AED,#D4AF37);
+    position:relative;
+    animation:loading 3s linear forwards;
+    box-shadow:
+        0 0 8px rgba(124,58,237,0.45),
+        0 0 14px rgba(212,175,55,0.18);
+}
+
+.progress::after{
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    width:35px;
+    height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.5));
+    filter:blur(2px);
+}
+
+.loading{
+    font-size:14px;
+    color:#B8AFC6;
+}
+
+@keyframes loading{
+    0%{width:0%;}
+    100%{width:100%;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='images/AI_LEGAL_ASSISTANT_logo.png') }}" class="logo">
+
+<div class="progress-box">
+<div class="progress"></div>
+</div>
+
+<div class="loading">Initializing system...</div>
+
+</div>
+
+</body>
+</html>

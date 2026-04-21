@@ -1,0 +1,418 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+body{
+    font-family:'Inter', sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(124,58,237,0.16), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(34,211,238,0.10), transparent 22%),
+        linear-gradient(135deg, #160f1f 0%, #22122d 45%, #120b18 100%);
+    color:#e5e7eb;
+    min-height:100vh;
+}
+
+.fir-page{
+    min-height:100vh;
+    padding:36px 14px 70px;
+}
+
+.fir-container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:#D6DEEC;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:20px;
+    transition:0.25s ease;
+}
+
+.back-link:hover{
+    color:#D4AF37;
+    transform:translateX(-2px);
+}
+
+.page-header{
+    margin-bottom:24px;
+}
+
+.page-title{
+    font-size:32px;
+    font-weight:900;
+    color:#ffffff;
+    margin-bottom:6px;
+    letter-spacing:0.3px;
+}
+
+.page-title span{
+    color:#D4AF37;
+}
+
+.page-subtitle{
+    color:#cbd5e1;
+    font-size:14px;
+    line-height:1.8;
+    margin:0;
+    max-width:760px;
+}
+
+.fir-card{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(62,36,80,0.97), rgba(39,20,52,0.99));
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.35);
+    margin-bottom:22px;
+}
+
+.fir-card::before{
+    content:"";
+    position:absolute;
+    top:-70px;
+    right:-70px;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(212,175,55,0.14), transparent 65%);
+    pointer-events:none;
+}
+
+.fir-card::after{
+    content:"";
+    position:absolute;
+    bottom:-90px;
+    left:-90px;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(34,211,238,0.10), transparent 65%);
+    pointer-events:none;
+}
+
+.card-head{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.card-title{
+    font-size:24px;
+    font-weight:800;
+    color:#ffffff;
+    margin:0;
+}
+
+.card-title i{
+    color:#4F46E5;
+    margin-right:8px;
+}
+
+.card-note{
+    margin-top:7px;
+    color:#cfd8eb;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.status-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border-radius:999px;
+    padding:10px 16px;
+    background:rgba(34,197,94,0.14);
+    color:#86efac;
+    border:1px solid rgba(34,197,94,0.28);
+    font-size:13px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.details-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:16px;
+    margin-bottom:20px;
+}
+
+.detail-item{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:16px 18px;
+    transition:0.25s ease;
+}
+
+.detail-item:hover{
+    transform:translateY(-2px);
+    border-color:rgba(212,175,55,0.25);
+    background:rgba(255,255,255,0.07);
+}
+
+.detail-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    font-weight:800;
+    color:#D4AF37;
+    text-transform:uppercase;
+    letter-spacing:0.7px;
+    margin-bottom:10px;
+}
+
+.detail-value{
+    color:#ffffff;
+    font-size:15px;
+    font-weight:600;
+    line-height:1.8;
+    word-break:break-word;
+}
+
+.full-width{
+    grid-column:1 / -1;
+}
+
+.text-box{
+    position:relative;
+    z-index:1;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:18px;
+}
+
+.text-content{
+    color:#f8fafc;
+    white-space:pre-wrap;
+    line-height:1.9;
+    font-size:15px;
+    font-weight:500;
+    word-break:break-word;
+}
+
+.btn-row{
+    position:relative;
+    z-index:1;
+    margin-top:22px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.download-btn,
+.back-btn{
+    padding:13px 22px;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:800;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-width:220px;
+    transition:0.25s ease;
+    border:none;
+}
+
+.download-btn{
+    background:linear-gradient(135deg, #22d3ee, #06b6d4);
+    color:#05131a;
+    box-shadow:0 10px 24px rgba(34,211,238,0.25);
+}
+
+.download-btn:hover{
+    background:linear-gradient(135deg, #3be1f7, #0891b2);
+    transform:translateY(-2px);
+    color:#05131a;
+}
+
+.back-btn{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(212,175,55,0.24);
+    color:#ffffff;
+}
+
+.back-btn:hover{
+    color:#D4AF37;
+    border-color:rgba(212,175,55,0.42);
+    transform:translateY(-2px);
+}
+
+.download-form{
+    margin:0;
+}
+
+@media (max-width:768px){
+    .fir-page{
+        padding:26px 12px 50px;
+    }
+
+    .page-title{
+        font-size:26px;
+    }
+
+    .fir-card{
+        padding:20px;
+        border-radius:20px;
+    }
+
+    .card-title{
+        font-size:21px;
+    }
+
+    .status-badge{
+        width:100%;
+        justify-content:center;
+    }
+
+    .details-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full-width{
+        grid-column:auto;
+    }
+
+    .btn-row{
+        flex-direction:column;
+    }
+
+    .download-btn,
+    .back-btn{
+        width:100%;
+        min-width:100%;
+    }
+}
+</style>
+
+<div class="fir-page">
+    <div class="container fir-container">
+
+        <a href="{{ url_for('police') }}" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Police Module</span>
+        </a>
+
+        <div class="page-header">
+            <h2 class="page-title">Generated FIR <span>Draft</span></h2>
+            <p class="page-subtitle">
+                Review the submitted details and generated FIR draft below before downloading the PDF.
+            </p>
+        </div>
+
+        <div class="fir-card">
+            <div class="card-head">
+                <div>
+                    <h3 class="card-title">
+                        <i class="bi bi-person-lines-fill"></i> Submitted FIR Details
+                    </h3>
+                    <div class="card-note">
+                        These are the details entered in the FIR generator form.
+                    </div>
+                </div>
+
+                <div class="status-badge">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Draft Ready
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-label"><i class="bi bi-person"></i> Name</div>
+                    <div class="detail-value">{{ name }}</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label"><i class="bi bi-telephone"></i> Phone</div>
+                    <div class="detail-value">{{ phone }}</div>
+                </div>
+
+                <div class="detail-item full-width">
+                    <div class="detail-label"><i class="bi bi-house-door"></i> Address</div>
+                    <div class="detail-value">{{ address }}</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label"><i class="bi bi-calendar-event"></i> Incident Date</div>
+                    <div class="detail-value">{{ incident_date }}</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label"><i class="bi bi-clock"></i> Incident Time</div>
+                    <div class="detail-value">{{ incident_time }}</div>
+                </div>
+
+                <div class="detail-item full-width">
+                    <div class="detail-label"><i class="bi bi-geo-alt"></i> Location</div>
+                    <div class="detail-value">{{ location }}</div>
+                </div>
+
+                <div class="detail-item full-width">
+                    <div class="detail-label"><i class="bi bi-person-badge"></i> Accused (if known)</div>
+                    <div class="detail-value">{{ accused }}</div>
+                </div>
+
+                <div class="detail-item full-width">
+                    <div class="detail-label"><i class="bi bi-folder2-open"></i> Evidence</div>
+                    <div class="detail-value">{{ evidence }}</div>
+                </div>
+
+                <div class="detail-item full-width">
+                    <div class="detail-label"><i class="bi bi-people"></i> Witness</div>
+                    <div class="detail-value">{{ witness }}</div>
+                </div>
+            </div>
+
+            <div class="text-box">
+                <div class="detail-label"><i class="bi bi-chat-left-text"></i> Complaint Description</div>
+                <div class="text-content">{{ description }}</div>
+            </div>
+       
+
+        
+           
+            <div class="btn-row">
+                <form method="POST" action="/download_fir" class="download-form">
+                    <input type="hidden" name="fir" value="{{ fir }}">
+                    <button type="submit" class="download-btn">
+                        <i class="bi bi-download"></i>
+                        Download FIR PDF
+                    </button>
+                </form>
+
+                <a href="{{ url_for('fir_generator') }}" class="back-btn">
+                    <i class="bi bi-arrow-left-circle"></i>
+                    Back to FIR Generator
+                </a>
+            </div>
+         </div>
+
+    </div>
+</div>
+
+{% endblock %}
